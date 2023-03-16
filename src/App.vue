@@ -13,6 +13,9 @@ import Login from './components/HelloWorld.vue'
 
       <nav>
         <RouterLink to="/Login"></RouterLink>
+        <RouterLink to="/LoginView"></RouterLink>
+        <RouterLink to="/AboutView"></RouterLink>
+
       </nav>
     </div>
   </header>
