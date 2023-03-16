@@ -1,0 +1,285 @@
+<template> 
+    <div id="page_wrapper">
+        <div id="sidenav" class="sidenav">
+          <div class="sidenav_header">
+            <div class="logo_section">
+              <i class='bx bxl-foursquare'></i>
+              <h3>Flyr</h3>
+            </div>
+            
+            <a href="#" class="sidenav_link active">
+              <i class='bx bx-folder'></i>
+              <h3>Projects</h3>
+            </a>
+            
+            <a href="#" class="sidenav_link">
+              <i class='bx bx-briefcase'></i>
+              <h3>My Work</h3>
+            </a>
+            
+            <a href="#" class="sidenav_link">
+              <i class='bx bx-file'></i>
+              <h3>Files</h3>
+            </a>
+            
+            <a href="#" class="sidenav_link">
+              <i class='bx bx-calendar'></i>
+              <h3>Calendar</h3>
+              <button disabled class="external_link">
+                <i class='bx bx-link-external' ></i>
+              </button> 
+            </a>
+          </div>
+          <div class="sidenav_footer">
+            <a href="#" class="sidenav_link">
+              <i class='bx bx-rocket'></i>
+              <h3>Special Promotion</h3>
+            </a>
+          </div>
+          
+            <button id="nav_collapse_btn">
+              <i class='bx bxs-chevrons-left'></i>
+            </button>
+          </div>
+        
+          
+        <main>
+          <header>
+            <div class="text">
+              <h2>Projects</h2> 
+              <p>Overview of the status, progress, and performance of projects</p>
+            </div>
+            <div>
+              <button id="theme_switch">
+                <i class='bx bx-sun'></i>
+              </button>
+            </div>
+          </header>
+          <div class="chart_container">
+            <canvas id="myChart"></canvas>
+          </div>
+          
+        </main>
+        
+        
+      </div>
+    </template>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+:root {
+  --accent-clr: #131313;
+  --accent-dark: #000000;
+  --accent-light: rgba(155, 155, 155, .1);
+  --text: seashell;
+}
+
+.dark_mode {
+  --accent-clr: #f2f2f2;
+  --accent-dark: #fff;
+  --accent-light: rgba(155, 155, 155, .1);
+  --text: black;
+}
+
+#page_wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+  background-color: var(--accent-dark);
+}
+
+.sidenav {
+  background-color: var(--accent-clr);
+  height: 100vh;
+  padding-inline: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+}
+
+.sidenav_link {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 2px;
+} 
+
+.sidenav_link:hover {
+  background-color: var(--accent-light);
+  border-radius: 8px;
+}
+
+.sidenav_link.active {
+  font-weight: 700;
+  background-color: var(--accent-light);
+  border-radius: 8px;
+}
+
+.sidenav_link i {
+  color: var(--text);
+}
+
+.sidenav_link:hover > h3, 
+.sidenav_link:hover i {
+  color: var(--text);
+}
+
+.logo_section {
+  height: 60px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 48px;
+  padding-inline: 14px;
+}
+
+.logo_section i {
+  color: var(--text);
+}
+
+.logo_section h3 {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#nav_collapse_btn {
+  position: absolute;
+  top: 72px;
+  left: 240px;
+  transition: 250ms ease-out;
+  background-color: var(--accent-dark);
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid var(--accent-light);
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+#nav_collapse_btn > i {
+  color: var(--text);
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+.bx {
+  font-size: 22px;
+  margin-right: 8px;
+}
+
+h3 {
+  color: var(--text);
+  font-size: 16px;
+  letter-spacing: .5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bx-calendar {
+  position: relative;
+}
+
+.external_link {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  left: 210px;
+  top: 266px;
+}
+
+.sidenav_footer {
+  margin-bottom: 12px;
+}
+
+main {
+  padding-inline: 32px;
+}
+
+header {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 300;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+p {
+  line-height: 145%;
+  letter-spacing: .25px;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+#theme_switch {
+  background-color: transparent;
+  border: none;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+#theme_switch:hover {
+  background-color: var(--accent-light);
+}
+
+.bx-sun {
+  color: var(--text);
+  padding-left: 8px;
+}
+
+.chart_container {
+  width: 90%;
+  max-width: 600px;
+  background-color: var(--accent-light);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid var(--accent-light);
+  box-shadow: 
+    0px 5px 20px rgba(0, 0, 0, 0.1),
+    0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.collapsed #sidenav {
+  width: 48px;
+  transition: 250ms ease-out;
+}
+
+.collapsed #nav_collapse_btn {
+  left: 44px;
+  transition: 250ms ease-out;
+}
+
+.collapsed .external_link {
+  display: none;
+}
+
+.collapsed .sidenav_link {
+  width: 22px;
+}
+
+.collapsed h3 {
+  display: none;
+}
+
+#page_wrapper.collapsed {
+  grid-template-columns: 68px 1fr;
+  transition: 250ms ease-out;
+}
+</style>    
