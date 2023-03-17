@@ -4,27 +4,27 @@
           <div class="sidenav_header">
             <div class="logo_section">
               <i class='bx bxl-foursquare'></i>
-              <h3>Flyr</h3>
+              <h3>Dashboard</h3>
             </div>
             
             <a href="#" class="sidenav_link active">
               <i class='bx bx-folder'></i>
-              <h3>Projects</h3>
+              <h3>Usuarios</h3>
             </a>
             
             <a href="#" class="sidenav_link">
               <i class='bx bx-briefcase'></i>
-              <h3>My Work</h3>
+              <h3>Empleados</h3>
             </a>
             
             <a href="#" class="sidenav_link">
               <i class='bx bx-file'></i>
-              <h3>Files</h3>
+              <h3>Empleos</h3>
             </a>
             
             <a href="#" class="sidenav_link">
               <i class='bx bx-calendar'></i>
-              <h3>Calendar</h3>
+              <h3>Servicios</h3>
               <button disabled class="external_link">
                 <i class='bx bx-link-external' ></i>
               </button> 
@@ -33,7 +33,7 @@
           <div class="sidenav_footer">
             <a href="#" class="sidenav_link">
               <i class='bx bx-rocket'></i>
-              <h3>Special Promotion</h3>
+              <h3>Administración</h3>
             </a>
           </div>
           

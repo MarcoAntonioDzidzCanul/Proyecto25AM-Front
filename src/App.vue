@@ -12,9 +12,11 @@ import Login from './components/HelloWorld.vue'
       <!-- <HelloWorld msg="You did it!" /> -->
 
       <nav>
-        <RouterLink to="/Login"></RouterLink>
-        <RouterLink to="/LoginView"></RouterLink>
-        <RouterLink to="/AboutView"></RouterLink>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/Login">Login</RouterLink>
+        <RouterLink to="/AboutView">AboutView</RouterLink>
+        <RouterLink to="/listar">Listar</RouterLink>
+        <RouterLink to="/crear">Crear</RouterLink>
 
       </nav>
     </div>
