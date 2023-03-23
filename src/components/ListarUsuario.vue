@@ -46,7 +46,7 @@
     </div>
   </div>
   <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-primary">Editar</button> 
-  <button type="button" v-on:click="  crearUsuario()" class="btn btn-outline-primary">Crear</button> 
+  <button type="button" v-on:click="  crearUsuario()" class="btn btn-outline-danger">Crear</button> 
 </template>
 
 <script>
