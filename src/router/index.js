@@ -43,6 +43,11 @@ const router = createRouter({
       name: 'Dashboard',
       component: () => import('../views/DashboardView.vue')
       
+    },
+    {
+      path: '/editar',
+      name: 'editar',
+      component: () => import('../components/ActualizarUsuario.vue')
     }
   ]
 })

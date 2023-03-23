@@ -10,11 +10,11 @@
           <thead>
             <tr>
               <th style="font-weight: bold;">Id</th>
-              <th style="font-weight: bold;">user</th>
-              <th style="font-weight: bold;">password</th>
-              <th style="font-weight: bold;">fechaRegistro</th>
-              <th style="font-weight: bold;">fkEmpleado</th>
-              <th style="font-weight: bold;">fkRol</th>
+              <th style="font-weight: bold;">User</th>
+              <th style="font-weight: bold;">Password</th>
+              <th style="font-weight: bold;">FechaRegistro</th>
+              <th style="font-weight: bold;">FkEmpleado</th>
+              <th style="font-weight: bold;">FkRol</th>
               <th style="font-weight: bold;">Acciones</th>
             </tr>
           </thead>
@@ -24,16 +24,17 @@
               <td>{{ usuario.user }}</td>
               <td>{{ usuario.password }}</td>
               <td>{{ usuario.fechaRegistro }}</td>
-              <td>{{ usuario.fkEmpleado }}</td>
+              <td>{{ usuario.fkEmpleado}}</td>
               <td>{{ usuario.fkRol }}</td>
               <td>
                 <div class="btn-group" role="label" aria-label="">
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                   <button type="button" v-on:click="borrarUsuario(usuario.pkUsuario)" class="btn btn-outline-danger">
                     Eliminar</button>
-                    <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-warning">Editar</button>        
+                           
                 </div>
               </td>
+              
               
             </tr>
           </tbody>
@@ -44,6 +45,7 @@
 
     </div>
   </div>
+  <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-primary">Editar</button> 
 </template>
 
 <script>
@@ -82,8 +84,8 @@ export default {
       var pregunta=window.confirm('Esta se seguro de eliminar este registro?');
 
       if(pregunta===true){
-        axios.delete("https://localhost:7051/Usuario" + id);
-        window.location.href = "get";
+        axios.delete("https://localhost:7051/Usuario?id=" + id);
+        window.location.href = "listar";
         
       }
         
@@ -91,7 +93,7 @@ export default {
 
     },
     editaregistro() {
-    window.location.href="/putUsuario";
+    window.location.href="/editar";
 
     
 
