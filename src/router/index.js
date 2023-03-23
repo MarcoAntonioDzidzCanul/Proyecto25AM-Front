@@ -14,16 +14,8 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
-    {
-      path: '/listar',
-      name: 'listar',
-      component: ListarUsuario
-    },
-    {
-      path: '/crear',
-      name: 'crear',
-      component: CrearUsuario
-    },
+    
+    
     {
       path: '/about',
       name: 'about',
@@ -41,14 +33,26 @@ const router = createRouter({
     {
       path: '/Dashboard',
       name: 'Dashboard',
-      component: () => import('../views/DashboardView.vue')
+      component: () => import('../views/DashboardView.vue'),
+      children: [
+        {
+          path: '/listar',
+          name: 'listar',
+          component: () =>import("../components/ListarUsuario.vue")
+        },
+        {
+          path: '/editar',
+          name: 'editar',
+          component: () => import('../components/ActualizarUsuario.vue')
+        },
+        {
+          path: '/crear',
+          name: 'crear',
+          component: () => import('../components/CrearUsuario.vue')
+        }
+      ]
       
-    },
-    {
-      path: '/editar',
-      name: 'editar',
-      component: () => import('../components/ActualizarUsuario.vue')
-    }
+    } 
   ]
 })
 

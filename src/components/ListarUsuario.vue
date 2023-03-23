@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="card">
-      <div class="card-header"><strong style="color:black;" >Lista de Usuarios</strong></div>
+      <div class="card-header" style="background-color: darkgray;"><strong style="color:black;">Lista de Usuarios</strong></div>
 
-      <div class="card_body">
+      <div class="card_body" style="background-color: darkgray;">
         <!-- <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-warning">Editar</button> -->
-        <table class="table">
+        <table class="table table-dark">
           
           <thead>
             <tr>
@@ -46,6 +46,7 @@
     </div>
   </div>
   <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-primary">Editar</button> 
+  <button type="button" v-on:click="  crearUsuario()" class="btn btn-outline-primary">Crear</button> 
 </template>
 
 <script>
@@ -98,6 +99,9 @@ export default {
     
 
     },
+    crearUsuario(){
+      window.location.href="/crear";
+    }
   },
 
 };

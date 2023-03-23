@@ -1,3 +1,6 @@
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+</script>
 <template> 
     <div id="page_wrapper">
         <div id="sidenav" class="sidenav">
@@ -9,7 +12,9 @@
             
             <a href="#" class="sidenav_link active">
               <i class='bx bx-folder'></i>
-              <h3>Usuarios</h3>
+              <h3>      <div class="row">
+              <router-link :to="{ path: '/listar' }" type="button" class="btn btn-outline-secondary">Usuario</router-link>
+            </div></h3>
             </a>
             
             <a href="#" class="sidenav_link">
@@ -45,24 +50,17 @@
           
         <main>
           <header>
-            <div class="text">
-              <h2>Projects</h2> 
-              <p>Overview of the status, progress, and performance of projects</p>
-            </div>
-            <div>
-              <button id="theme_switch">
-                <i class='bx bx-sun'></i>
-              </button>
-            </div>
-          </header>
-          <div class="chart_container">
-            <canvas id="myChart"></canvas>
-          </div>
-          
+            <!-- <div class="row">
+              <router-link :to="{ path: '/listar' }" type="button" class="btn btn-outline-secondary">Listar</router-link>
+            </div> -->
+            <RouterView></RouterView>
+           
+            </header>
         </main>
         
         
       </div>
+
     </template>
 
 <style>
@@ -283,3 +281,29 @@ p {
   transition: 250ms ease-out;
 }
 </style>    
+
+<script>
+export default {
+    name: 'dashboard',
+    components: {
+
+    },
+    data() {
+        return {
+            ver: true
+        }
+    },
+    methods: {
+        AbrirDashUsuario() {
+            window.location.href = "/listar";
+        }
+        // AbrirDashCliente() {
+        //     window.location.href = "/getcliente";
+        // },
+        // AbrirDashDepa(){
+        //     window.location.href = "/getdepa";
+        // }
+    }
+}
+
+</script>

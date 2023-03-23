@@ -1,8 +1,8 @@
 <template>
   <div class="container-fluid">
       <div class="card">
-          <div class="card-header">Crear Usuario</div>
-          <div class="card-body">
+          <div style="background-color: black;" class="card-header">Crear Usuario</div>
+          <div style="background-color: black;" class="card-body">
               <form v-on:submit.prevent="formulario">
                   <div class="row">
                       <div class="col">
