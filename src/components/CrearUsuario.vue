@@ -1,53 +1,50 @@
 <template>
   <div class="container-fluid">
       <div class="card">
-          <div style="background-color: black;" class="card-header">Crear Usuario</div>
-          <div style="background-color: black;" class="card-body">
+          <div class="card-header" style="background-color: gray; color: black;" >Crear Usuario</div>
+          <div style="background-color: gray;" class="card-body">
               <form v-on:submit.prevent="formulario">
                   <div class="row">
-                      <div class="col">
+                      
 
                           <div class="form-group">
-                              <label for="user">user:</label>
+                              <label for="user" style="color: black;">user:</label>
                               <input type="text" class="form-control" name="user" aria-describedby="helpId" id="user"
                                   placeholder="usuario" v-model="Usuarios.user" />
-                              <small id="helpId" class="form-text" text-muted>Ingresa tu correo electronico</small>
+                              <small id="helpId" class="form-text" text-muted style="color: black;">Ingresa tu correo electronico</small>
                           </div>
-                      </div>
-                      <div class="col">
+                      
+                      
                           <div class="form-group">
-                              <label for="password">Password:</label>
+                              <label for="password" style="color: black;">Password:</label>
                               <input type="text" class="form-control" name="password" id="password"
                                   aria-describedby="helpId" placeholder="password" v-model="Usuarios.password" />
-                              <small id="helpId" class="form-text" text-muted>Ingresa tu contraseña</small>
+                              <small id="helpId" class="form-text" text-muted style="color: black;">Ingresa tu contraseña</small>
                           </div>
-                      </div>
+                      
 
                   </div>
-                  <br>
-                  <div class="row">
-                      <div class="col">
-
+                
                           <div class="form-group">
-                              <label for="fkEmpleado">fkEmpleado:</label>
+                              <label for="fkEmpleado" style="color: black;">fkEmpleado:</label>
                               <input type="number" class="form-control" name="fkEmpleado" id="fkEmpleado"
                                   aria-describedby="helpId" placeholder="fkEmpleado" v-model="Usuarios.fkEmpleado" />
                           </div>
-                      </div>
-                      <div class="col">
+                      
+                      
 
                           <div class="form-group">
-                              <label for="fkRol">fkRol:</label>
+                              <label for="fkRol" style="color: black;">fkRol:</label>
                               <input type="number" class="form-control" name="fkRol" id="precio" aria-describedby="helpId"
                                   placeholder="fkRol" v-model="Usuarios.fkRol" />
                           </div>
-                      </div>
-                  </div>
+                      
+                  
                   <br>
                   <div class="row">
                       <div class="btn-group" role="group" id="botonesopcion">
-                          |<button type="submit" class="btn btn-outline-primary">Agregar</button>|
-                          |<router-link :to="{ name: 'listar' }" class="btn btn-outline-danger">Cancelar</router-link>|
+                          <button type="submit" class="btn btn-outline-primary">Agregar</button>
+                          <router-link :to="{ name: 'listar' }" class="btn btn-outline-danger">Cancelar</router-link>
                       </div>
                       <router-link :to="{ name: 'listar' }" class="btn btn-outline-primary" id="finaliza" style="display: none;">Finalizar</router-link>
                   </div>
@@ -94,7 +91,7 @@ export default {
               if (result.status == 200) {
                   document.getElementById("alert").style.display = "block";
                   document.getElementById('botonesopcion').style.display="none";
-                  this.smg = "agregado exitosamente :D/";
+                  this.smg = "Se creo correctamente";
                   document.getElementById('finaliza').style.display="block";
                   console.log(result);
               }

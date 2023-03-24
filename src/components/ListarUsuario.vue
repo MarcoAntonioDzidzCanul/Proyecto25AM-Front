@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="card">
-      <div class="card-header" style="background-color: darkgray;"><strong style="color:black;">Lista de Usuarios</strong></div>
+      <div class="card-header" style="background-color: gray;"><strong style="color:black;">Lista de Usuarios</strong></div>
 
-      <div class="card_body" style="background-color: darkgray;">
+      <div class="card_body" style="background-color: gray;">
         <!-- <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-warning">Editar</button> -->
         <table class="table table-dark">
           
@@ -29,8 +29,11 @@
               <td>
                 <div class="btn-group" role="label" aria-label="">
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                  <button type="button" v-on:click="borrarUsuario(usuario.pkUsuario)" class="btn btn-outline-danger">
-                    Eliminar</button>
+                  <button type="button" v-on:click="eliminar(usuario.pkUsuario)" class="btn btn-outline-danger">Eliminar</button>
+
+                  <button type="button" v-on:click="  editar()" class="btn btn-outline-primary">Editar</button> 
+                    
+                  
                            
                 </div>
               </td>
@@ -45,8 +48,8 @@
 
     </div>
   </div>
-  <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-primary">Editar</button> 
-  <button type="button" v-on:click="  crearUsuario()" class="btn btn-outline-danger">Crear</button> 
+  <button type="button" v-on:click="  editar()" class="btn btn-outline-primary">Editar</button> 
+  <button type="button" v-on:click="  crear()" class="btn btn-outline-danger">Crear</button> 
 </template>
 
 <script>
@@ -67,10 +70,10 @@ export default {
     };
   },
   created: function () {
-    this.consultarUsuario();
+    this.ListaUsuario();
   },
   methods: {
-    consultarUsuario() {
+    ListaUsuario() {
       axios.get("https://localhost:7051/Usuario/").then((result) => {
         console.log(result.data);
         this.Usuarios = result.data.result;
@@ -81,25 +84,24 @@ export default {
 
     },
 
-    borrarUsuario(id) {
-      var pregunta=window.confirm('Esta se seguro de eliminar este registro?');
+    eliminar(id) {
+      var pregunta=window.confirm('¿Desea eliminar el registro?');
 
       if(pregunta===true){
         axios.delete("https://localhost:7051/Usuario?id=" + id);
-        window.location.href = "listar";
-        
+        window.location.href = "/listar";
       }
         
       
 
     },
-    editaregistro() {
+    editar() {
     window.location.href="/editar";
 
     
 
     },
-    crearUsuario(){
+    crear(){
       window.location.href="/crear";
     }
   },

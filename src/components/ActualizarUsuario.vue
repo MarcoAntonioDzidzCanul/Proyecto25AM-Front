@@ -1,18 +1,17 @@
 <template>
     <div class="container-fluid">
-        <div class="card">
-            <div class="card-header">Actualizar Usuario</div>
-            <small id="helpId" class="form-text" text-muted>Ingrese los cambios</small>
-            <div class="card-body">
+        <div class="card" style="background-color: gray;">
+            <div class="card-header" style="background-color: gray; color: black;">Actualizar Usuario</div>
+            <small id="helpId" class="form-text" text-muted style="color: black;">Ingrese sus cambios</small>
+            <div class="card-body" style="background-color: gray;">
                 <form v-on:submit.prevent="formulario">
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="user">ID:</label>
+                                <label for="user" style="color: black;">Id:</label>
                                 <input type="number" class="form-control" name="user" aria-describedby="helpId"
                                     id="pkUsuario" placeholder="ID" v-model="pkUsuario" />
-                                <small id="peticion" class="form-text" text-muted>Ingresa id del registro que desea
-                                    actualizar</small>
+                                <small id="peticion" class="form-text" text-muted style="color: black;">Ingresa un Id</small>
                                 <br>
                                 <br>
                                 <div id="botonbusca">
@@ -27,7 +26,7 @@
                             <div class="col">
 
                                 <div class="form-group">
-                                    <label for="user">user:</label>
+                                    <label for="user" style="color: black;">user:</label>
                                     <input type="text" class="form-control" name="user" aria-describedby="helpId" id="user"
                                         placeholder="usuario" value="" />
 
@@ -37,7 +36,7 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="password">Password:</label>
+                                    <label for="password" style="color: black;">Password:</label>
                                     <input type="text" class="form-control" name="password" id="password"
                                         aria-describedby="helpId" placeholder="password" value="" />
 
@@ -51,7 +50,7 @@
                         <div class="col">
 
                             <div class="form-group">
-                                <label for="fkEmpleado">fkEmpleado:</label>
+                                <label for="fkEmpleado" style="color: black;">FkEmpleado:</label>
                                 <input type="number" class="form-control" name="fkEmpleado" id="fkEmpleado"
                                     aria-describedby="helpId" placeholder="fkEmpleado" value="" />
                             </div>
@@ -59,18 +58,18 @@
                         <div class="col">
 
                             <div class="form-group">
-                                <label for="fkRol">fkRol:</label>
+                                <label for="fkRol" style="color: black;">FkRol:</label>
                                 <input type="number" class="form-control" name="fkRol" id="fkRol" aria-describedby="helpId"
                                     placeholder="fkRol" value="" />
                             </div>
                         </div>
                     </div>
                     <br>
-                    <div id="botoncerrar" style="display: none;">|<router-link :to="{name:'listar'}" type="button" class="btn btn-outline-primary">Finalizar</router-link>|</div>
+                    <div id="botoncerrar" style="display: none;"><router-link :to="{name:'listar'}" type="button" class="btn btn-outline-primary">Finalizar</router-link>|</div>
                     <div id="botones" class="row" style="display: none;">
                         <div class="btn-group" role="group">
-                            |<button type="submit" class="btn btn-outline-primary">Actualizar</button>|
-                            |<router-link :to="{ name: 'listar' }" class="btn btn-outline-danger">Cancelar</router-link>|
+                            <button type="submit" class="btn btn-outline-primary">Editar</button>
+                            <router-link :to="{ name: 'listar' }" class="btn btn-outline-danger">Cancelar</router-link>
                         </div>
 
                     </div>
@@ -121,7 +120,7 @@ export default {
                 console.log(resutl.data);
                 document.getElementById('botones').style.display = "none";
                 document.getElementById("alert").style.display = "block";
-                this.smg = "Registro actualizado exitosamente :D/";
+                this.smg = "Se actualizo correctamente";
                 document.getElementById('botoncerrar').style.display="block";
             })
         },
@@ -132,7 +131,7 @@ export default {
                     this.Usuarios = response.data.result
                     if (this.Usuarios == null) {
                         document.getElementById('alert2').style.display = "block";
-                        this.bad = "No hay ningun registro de ese ID"
+                        this.bad = "No se encontro registro"
                     } else {
                         console.log(response.data.result)
                         console.log(id)
@@ -156,7 +155,7 @@ export default {
                 })
             } else {
                 document.getElementById('alert2').style.display = "block";
-                this.bad = "No hay valor de ID"
+                this.bad = "Ingrese un Id"
             }
 
 
