@@ -1,5 +1,39 @@
 <template>
-    <div class="container-fluid">
+   <div v-if="formularioVisible">
+  <h2>Editar Usuario</h2>
+  <form @submit.prevent="actualizarUsuario">
+    <label for="user">user:</label>
+    <input type="text" class="form-control" name="user" v-model="Usuario.user" id="user" required/>
+
+    <label for="user">password:</label>
+    <input type="text" class="form-control" name="user" v-model="Usuario.password" id="password" required/>
+    
+    <label for="user">FkEmpleado:</label>
+    <input type="text" class="form-control" name="user" v-model="Usuario.fkEmpleado" id="fkEmpleado" required/>
+
+    <label for="user">FkRol:</label>
+    <input type="text" class="form-control" name="user" v-model="Usuario.fkRol" id="fkRol" required/>
+
+
+
+    
+
+    
+
+    <button type="submit">Guardar cambios</button>
+  </form>
+</div>
+    
+
+
+
+
+
+
+
+
+
+    <!-- <div class="container-fluid">
         <div class="card" style="background-color: gray;">
             <div class="card-header" style="background-color: gray; color: black;">Actualizar Usuario</div>
             <small id="helpId" class="form-text" text-muted style="color: black;">Ingrese sus cambios</small>
@@ -83,86 +117,132 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script>
 import axios from 'axios'
+
 export default {
     name: 'Editar',
     components: {
 
+},
+
+  data() {
+    return {
+      Usuarios: [],
+      formularioVisible: false,
+      Usuario: {
+        pkUsuario: null,
+        user: '',
+        password: '',
+        fkEmpleado: '', 
+        fkRol: ''
+      }
+    }
+  },
+  mounted() {
+    this.obtenerUsuarios()
+    this.mostrarFormulario()
+    // this.mostrarFormulario()
+    // this.actualizarUsuario()
+  },
+  methods: {
+    obtenerUsuarios() {
+        axios.get('https://localhost:7051/Usuario').then(response => {
+        console.log(response.data);
+        this.Usuarios = response.data;
+        })
+        .catch(error => {
+          console.error(error)
+        })
     },
-
-    data() {
-        return {
-            Usuarios: "",
-            smg: "",
-            pkUsuario: 0,
-            bad: "",
-        };
+    mostrarFormulario() {
+      axios.get(`https://localhost:7051/Usuario/${this.Usuario.pkUsuario}`)
+        .then(response => {
+          this.Usuario = response.data
+          this.formularioVisible = true
+        })
+        .catch(error => {
+          console.error(error)
+        })
+      
     },
-    methods: {
-        formulario() {
-            const tiempoTranscurrido = Date.now();
-            const hoy = new Date(tiempoTranscurrido);
-            var cuerpo = {
-                pkUsuario: this.pkUsuario,
-                user: document.getElementById('user').value,
-                password: document.getElementById('password').value,
-                fechaRegistro: hoy.toISOString(),
-                fkEmpleado: document.getElementById('fkEmpleado').value,
-                fkRol: document.getElementById('fkRol').value,
+    actualizarUsuario() {
+      axios.put(`https://localhost:7051/Usuario?id=${this.Usuario.pkUsuario}`, this.Usuario).then(response => {
+          console.log('Item actualizado:', response.data)
+          this.mostrarFormulario()
+          this.formularioVisible = false
+        })
+        .catch(error => {
+          console.error(error)
+        })
+    }
+  }
+}
+
+        
+        // formulario() {
+        //     const tiempoTranscurrido = Date.now();
+        //     const hoy = new Date(tiempoTranscurrido);
+        //     var cuerpo = {
+        //         pkUsuario: this.pkUsuario,
+        //         user: document.getElementById('user').value,
+        //         password: document.getElementById('password').value,
+        //         fechaRegistro: hoy.toISOString(),
+        //         fkEmpleado: document.getElementById('fkEmpleado').value,
+        //         fkRol: document.getElementById('fkRol').value,
 
 
-            };
-            axios.put('https://localhost:7051/Usuario?id=' + this.pkUsuario, cuerpo).then((resutl) => {
-                console.log(resutl.data);
-                document.getElementById('botones').style.display = "none";
-                document.getElementById("alert").style.display = "block";
-                this.smg = "Se actualizo correctamente";
-                document.getElementById('botoncerrar').style.display="block";
-            })
-        },
-        Buscar(id) {
-            if (id > 0) {
-                axios.get('https://localhost:7051/Usuario/' + id).then((response) => {
+        //     };
+        //     axios.put('https://localhost:7051/Usuario?id=' + this.pkUsuario, cuerpo).then((resutl) => {
+        //         console.log(resutl.data);
+        //         document.getElementById('botones').style.display = "none";
+        //         document.getElementById("alert").style.display = "block";
+        //         this.smg = "Se actualizo correctamente";
+        //         document.getElementById('botoncerrar').style.display="block";
+        //     })
+        // },
+        // Buscar(id) {
+        //     if (id > 0) {
+        //         axios.get('https://localhost:7051/Usuario/' + id).then((response) => {
 
-                    this.Usuarios = response.data.result
-                    if (this.Usuarios == null) {
-                        document.getElementById('alert2').style.display = "block";
-                        this.bad = "No se encontro registro"
-                    } else {
-                        console.log(response.data.result)
-                        console.log(id)
-                        document.getElementById('botonbusca').style.display = "none";
-                        document.getElementById('peticion').style.display = "none";
-                        document.getElementById('user-password', 'fk-empleado-rol').style.display = "block";
-                        document.getElementById('fk-empleado-rol').style.display = "block";
-                        document.getElementById('botones').style.display = "block";
-                        document.getElementById('alert2').style.display = "none";
+        //             this.Usuarios = response.data.result
+        //             if (this.Usuarios == null) {
+        //                 document.getElementById('alert2').style.display = "block";
+        //                 this.bad = "No se encontro registro"
+        //             } else {
+        //                 console.log(response.data.result)
+        //                 console.log(id)
+        //                 document.getElementById('botonbusca').style.display = "none";
+        //                 document.getElementById('peticion').style.display = "none";
+        //                 document.getElementById('user-password', 'fk-empleado-rol').style.display = "block";
+        //                 document.getElementById('fk-empleado-rol').style.display = "block";
+        //                 document.getElementById('botones').style.display = "block";
+        //                 document.getElementById('alert2').style.display = "none";
 
 
-                        document.getElementById('user').value = this.Usuarios.user;
-                        document.getElementById('password').value = this.Usuarios.password;
-                        document.getElementById('fkEmpleado').value = this.Usuarios.fkEmpleado;
-                        document.getElementById('fkRol').value = this.Usuarios.fkRol;
+        //                 document.getElementById('user').value = this.Usuarios.user;
+        //                 document.getElementById('password').value = this.Usuarios.password;
+        //                 document.getElementById('fkEmpleado').value = this.Usuarios.fkEmpleado;
+        //                 document.getElementById('fkRol').value = this.Usuarios.fkRol;
 
                         
 
-                    }
+        //             }
                     
-                })
-            } else {
-                document.getElementById('alert2').style.display = "block";
-                this.bad = "Ingrese un Id"
-            }
+        //         })
+        //     } else {
+        //         document.getElementById('alert2').style.display = "block";
+        //         this.bad = "Ingrese un Id"
+        //     }
 
 
-        }
+        // }
 
-    },
+    
 
-}
+
 
 </script>
