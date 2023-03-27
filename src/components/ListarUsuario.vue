@@ -29,6 +29,14 @@
               <td>
                 <div class="btn-group" role="label" aria-label="">
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
+                  <button type="button" v-on:click="editarU(usuario.pkUsuario)" class="btn btn-outline-primary">Editar</button> 
+                   
+                    
+                  
+                           
+                </div>
+                <div class="btn-group" role="label" aria-label="">
+                  <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                   <button type="button" v-on:click="eliminar(usuario.pkUsuario)" class="btn btn-outline-danger">Eliminar</button>
 
                    
@@ -49,7 +57,7 @@
     </div>
   </div>
   <button type="button" v-on:click="  editar(pkUsuario)" class="btn btn-outline-primary">Editar</button> 
-  <button type="button" v-on:click="  crear()" class="btn btn-outline-danger">Crear</button> 
+  <button type="button" v-on:click="crear()" class="btn btn-outline-danger">Crear</button> 
 </template>
 
 <script>
@@ -116,8 +124,9 @@ export default {
       
 
     },
-    editar() {
-    window.location.href="/editar";
+    editarU(pkUsuario) {
+      console.log(pkUsuario);
+    this.$router.push("/editar/" + pkUsuario)
 
     
 

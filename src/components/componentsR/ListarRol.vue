@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="card">
-        <div class="card-header" style="background-color: gray;"><strong style="color:black;">Lista de Usuarios</strong></div>
+        <div class="card-header" style="background-color: gray;"><strong style="color:black;">Lista de Roles</strong></div>
   
         <div class="card_body" style="background-color: gray;">
           <!-- <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-warning">Editar</button> -->
@@ -93,7 +93,7 @@
   
       },
       crear(){
-        window.location.href="/crear";
+        window.location.href="/crearrol";
       }
     },
   

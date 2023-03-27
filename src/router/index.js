@@ -71,9 +71,14 @@ const router = createRouter({
           component: () => import('../components/componentsR/ListarRol.vue')
         },
         {
-          path: '/editar',
+          path: '/editar/: pkUsuario',
           name: 'editar',
           component: () => import('../components/ActualizarUsuario.vue')
+        },
+        {
+          path: '/editarcliente/: pkCliente',
+          name: 'editarcliente',
+          component: () => import('../components/componentsC/ActualizarCliente.vue')
         },
         {
           path: '/crear',

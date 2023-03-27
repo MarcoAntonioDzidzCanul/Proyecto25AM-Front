@@ -1,28 +1,57 @@
 <template>
-   <!-- <div v-if="formularioVisible">
-  <h2>Editar Usuario</h2>
-  <form @submit.prevent="actualizarUsuario">
-    <label for="user">user:</label>
-    <input type="text" class="form-control" name="user" v-model="Usuario.user" id="user" required/>
+      <div class="container-fluid">
+        <div class="card" style="background-color: gray;">
+            <div class="card-header" style="background-color: gray; color: black;">Actualizar Usuario</div>
+            <div class="card-body">
+                <form v-on:submit.prevent="editarUsuario">
+                    <div class="form-group">
+                        <label for="user" style="color: black;">Usuario:</label>
+                                <input type="text" class="form-control" name="user" aria-describedby="helpId"
+                                    id="user" placeholder="Usuario" v-model="form.user" />
+                                <small id="peticion" class="form-text" text-muted style="color: black;">Ingresa un usuario</small>
 
-    <label for="user">password:</label>
-    <input type="text" class="form-control" name="user" v-model="Usuario.password" id="password" required/>
+                                <label for="password" style="color: black;">Password:</label>
+                                <input type="text" class="form-control" name="password" aria-describedby="helpId"
+                                    id="password" placeholder="password" v-model="form.password" />
+                                <small id="peticion" class="form-text" text-muted style="color: black;">Ingresa un password</small>
+
+                                <label for="fechaRegistro" style="color: black;">Fecha de registro:</label>
+                                <input type="text" class="form-control" name="fechaRegistro" aria-describedby="helpId"
+                                    id="fechaRegistro" placeholder="Usuario" v-model="form.fechaRegistro" />
+                                <small id="peticion" class="form-text" text-muted style="color: black;">Ingresa un Id</small>
+
+                                <label for="fkEmpleado" style="color: black;">FkEmpleado:</label>
+                                <input type="text" class="form-control" name="fkEmpleado" aria-describedby="helpId"
+                                    id="fkEmpleado" placeholder="fkEmpleado" v-model="form.fkEmpleado" />
+                                <small id="peticion" class="form-text" text-muted style="color: black;">Ingresa un Id</small>
+
+                                <label for="fkRol" style="color: black;">FkRol:</label>
+                                <input type="text" class="form-control" name="fkRol" aria-describedby="helpId"
+                                    id="fkRol" placeholder="fkRol" v-model="form.fkRol" />
+                                <small id="peticion" class="form-text" text-muted style="color: black;">Ingresa un Id</small>
+
+
+
+                                </div><br/>
+
+                                <div class="btn-group" role="group">
+                                    <button type="submit" class="btn -btn-success">Guardar</button>
+                                    <router-link :to="{name: 'listar'}" class="btn btn-danger">Cancelar</router-link>
+                                </div>
+                </form>
+
+            </div>
+            </div>
+            </div>
+   
+
+
+
     
-    <label for="user">FkEmpleado:</label>
-    <input type="text" class="form-control" name="user" v-model="Usuario.fkEmpleado" id="fkEmpleado" required/>
-
-    <label for="user">FkRol:</label>
-    <input type="text" class="form-control" name="user" v-model="Usuario.fkRol" id="fkRol" required/>
-
-
 
     
 
-    
-
-    <button type="submit">Guardar cambios</button>
-  </form>
-</div> -->
+  
     
 
 
@@ -33,7 +62,7 @@
 
 
 
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="card" style="background-color: gray;">
             <div class="card-header" style="background-color: gray; color: black;">Actualizar Usuario</div>
             <small id="helpId" class="form-text" text-muted style="color: black;">Ingrese sus cambios</small>
@@ -117,92 +146,69 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script>
 import axios from 'axios'
 
 export default {
-    name: 'putUsuario',
+    name: 'editar',
     components: {
 
     },
 
-    data() {
+    data: function() {
         return {
-            Usuarios: [],
-            smg: "",
-            pkUsuario: 0,
-            bad: "",
-        };
+            pkUsuario : null,
+            form: {
+                "pkUsuario" : "",
+                "user" : "",
+                "password" : "",
+                "fechaRegistro": "",
+                "fkEmpleado" : "",
+                "fkRol" : ""
+            },
+            
+            
+        }
     },
+    methods:{
+        editarUsuario()
+        {
+            axios.put("https://localhost:7051/Usuario?id=" + this.pkUsuario, this.form).then(data =>{
+                console.log(data);
+            });
+            this.$router.push("/listar")
+        }
+        
+    },
+    mounted : function(pkUsuario){
+        this.pkUsuario = this.$route.params.pkUsuario;
+        // const Fecha = this.form.fechaRegistro;
+        console.log(this.pkUsuario);
+        axios.get("https://localhost:7051/Usuario/" + this.pkUsuario).then(datos =>
+        {
+            this.form.pkUsuario = datos.data.value.result.pkUsuario;
+            this.form.user = datos.data.value.result.user;
+            this.form.password = datos.data.value.result.password;
+            this.form.fkEmpleado = datos.data.value.reuslt.fkEmpleado;
+            this.form.fkRol = datos.data.value.result.fkRol;
+            console.log(this.form)
+        });
+
+    },
+}
+
+    
   
    
   
-  methods: {
+  
+            
 
 
         
-        formulario() {
-            const tiempoTranscurrido = Date.now();
-            const hoy = new Date(tiempoTranscurrido);
-            var cuerpo = {
-                pkUsuario: this.pkUsuario,
-                user: document.getElementById('user').value,
-                password: document.getElementById('password').value,
-                fechaRegistro: hoy.toISOString(),
-                fkEmpleado: document.getElementById('fkEmpleado').value,
-                fkRol: document.getElementById('fkRol').value,
-
-
-            };
-            axios.put('https://localhost:7051/Usuario?id=' + this.pkUsuario, cuerpo).then((resutl) => {
-                console.log(resutl.data);
-                document.getElementById('botones').style.display = "none";
-                document.getElementById("alert").style.display = "block";
-                this.smg = "Se actualizo correctamente";
-                document.getElementById('botoncerrar').style.display="block";
-            })
-        },
-        Buscar(id) {
-            if (id > 0) {
-                axios.get('https://localhost:7051/Usuario/' + id).then((response) => {
-
-                    this.Usuarios = response.data.result
-                    if (this.Usuarios == null) {
-                        document.getElementById('alert2').style.display = "block";
-                        this.bad = "No se encontro registro"
-                    } else {
-                        console.log(response.data.result)
-                        console.log(id)
-                        document.getElementById('botonbusca').style.display = "none";
-                        document.getElementById('peticion').style.display = "none";
-                        document.getElementById('user-password', 'fk-empleado-rol').style.display = "block";
-                        document.getElementById('fk-empleado-rol').style.display = "block";
-                        document.getElementById('botones').style.display = "block";
-                        document.getElementById('alert2').style.display = "none";
-
-
-                        document.getElementById('user').value = this.Usuarios.user;
-                        document.getElementById('password').value = this.Usuarios.password;
-                        document.getElementById('fkEmpleado').value = this.Usuarios.fkEmpleado;
-                        document.getElementById('fkRol').value = this.Usuarios.fkRol;
-
-                        
-
-                    }
-                    
-                })
-            } else {
-                document.getElementById('alert2').style.display = "block";
-                this.bad = "Ingrese un Id"
-            }
-
-
-        }
-    }
-}
 
     
 
