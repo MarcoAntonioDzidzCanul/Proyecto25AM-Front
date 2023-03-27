@@ -31,7 +31,7 @@
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                   <button type="button" v-on:click="eliminar(usuario.pkUsuario)" class="btn btn-outline-danger">Eliminar</button>
 
-                  <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button> 
+                   
                     
                   
                            
@@ -116,7 +116,7 @@ export default {
       
 
     },
-    mostrarFormulario() {
+    editar() {
     window.location.href="/editar";
 
     

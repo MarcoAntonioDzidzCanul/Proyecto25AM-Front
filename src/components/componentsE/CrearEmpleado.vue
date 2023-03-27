@@ -1,42 +1,56 @@
 <template>
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header" style="background-color: gray; color: black;" >Crear Usuario</div>
+            <div class="card-header" style="background-color: gray; color: black;" >Crear Empleado</div>
             <div style="background-color: gray;" class="card-body">
                 <form v-on:submit.prevent="formulario">
                     <div class="row">
                         
   
                             <div class="form-group">
-                                <label for="user" style="color: black;">user:</label>
-                                <input type="text" class="form-control" name="user" aria-describedby="helpId" id="user"
-                                    placeholder="usuario" v-model="Usuarios.user" />
-                                <small id="helpId" class="form-text" text-muted style="color: black;">Ingresa tu correo electronico</small>
+                                <label for="nombre" style="color: black;">Nombre:</label>
+                                <input type="text" class="form-control" name="nombre" aria-describedby="helpId" id="nombre"
+                                    placeholder="nombres" v-model="Empleados.nombre" />
+                                <small id="helpId" class="form-text" text-muted style="color: black;">Ingrese sus nombres</small>
                             </div>
                         
                         
                             <div class="form-group">
-                                <label for="password" style="color: black;">Password:</label>
-                                <input type="text" class="form-control" name="password" id="password"
-                                    aria-describedby="helpId" placeholder="password" v-model="Usuarios.password" />
-                                <small id="helpId" class="form-text" text-muted style="color: black;">Ingresa tu contraseña</small>
+                                <label for="apellidos" style="color: black;">Apellidos:</label>
+                                <input type="text" class="form-control" name="apellidos" id="apellidos"
+                                    aria-describedby="helpId" placeholder="apellidos" v-model="Empleados.apellidos" />
+                                <small id="helpId" class="form-text" text-muted style="color: black;">Ingrese sus apellidos</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dirreccion" style="color: black;">Direccion:</label>
+                                <input type="text" class="form-control" name="dirreccion" id="dirreccion"
+                                    aria-describedby="helpId" placeholder="direccion" v-model="Empleados.dirreccion" />
+                                <small id="helpId" class="form-text" text-muted style="color: black;">Ingrese su direccion</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ciudad" style="color: black;">Ciudad:</label>
+                                <input type="text" class="form-control" name="ciudad" id="ciudad"
+                                    aria-describedby="helpId" placeholder="ciudad" v-model="Empleados.ciudad" />
+                                <small id="helpId" class="form-text" text-muted style="color: black;">Ingrese su ciudad</small>
                             </div>
                         
   
                     </div>
                   
                             <div class="form-group">
-                                <label for="fkEmpleado" style="color: black;">fkEmpleado:</label>
-                                <input type="number" class="form-control" name="fkEmpleado" id="fkEmpleado"
-                                    aria-describedby="helpId" placeholder="fkEmpleado" v-model="Usuarios.fkEmpleado" />
+                                <label for="fkPuesto" style="color: black;">Puesto:</label>
+                                <input type="number" class="form-control" name="fkPuesto" id="fkPuesto"
+                                    aria-describedby="helpId" placeholder="fkPuesto" v-model="Empleados.fkPuesto" />
                             </div>
                         
                         
   
                             <div class="form-group">
-                                <label for="fkRol" style="color: black;">fkRol:</label>
-                                <input type="number" class="form-control" name="fkRol" id="precio" aria-describedby="helpId"
-                                    placeholder="fkRol" v-model="Usuarios.fkRol" />
+                                <label for="fkDepartamento" style="color: black;">Departamento:</label>
+                                <input type="number" class="form-control" name="fkDepartamento" id="fkDepartamento" aria-describedby="helpId"
+                                    placeholder="fkDepartamento" v-model="Empleados.fkDepartamento" />
                             </div>
                         
                     
@@ -44,9 +58,9 @@
                     <div class="row">
                         <div class="btn-group" role="group" id="botonesopcion">
                             <button type="submit" class="btn btn-outline-primary">Agregar</button>
-                            <router-link :to="{ name: 'listar' }" class="btn btn-outline-danger">Cancelar</router-link>
+                            <router-link :to="{ name: 'listaempleado' }" class="btn btn-outline-danger">Cancelar</router-link>
                         </div>
-                        <router-link :to="{ name: 'listar' }" class="btn btn-outline-primary" id="finaliza" style="display: none;">Finalizar</router-link>
+                        <router-link :to="{ name: 'listaempleado' }" class="btn btn-outline-primary" id="finaliza" style="display: none;">Finalizar</router-link>
                     </div>
                     <br>
                     <div class="row">
@@ -70,23 +84,22 @@
   
     data() {
         return {
-            Usuarios: {},
+            Empleados: {},
             smg: "",
         };
     },
     methods: {
         formulario() {
-            const tiempoTranscurrido = Date.now();
-            const hoy = new Date(tiempoTranscurrido);
             var cuerpo = {
-                user: this.Usuarios.user,
-                password: this.Usuarios.password,
-                fechaRegistro: hoy.toISOString(),
-                fkEmpleado: this.Usuarios.fkEmpleado,
-                fkRol: this.Usuarios.fkRol
+                nombre: this.Empleados.nombre,
+                apellidos: this.Empleados.apellidos,
+                dirreccion: this.Empleados.dirreccion,
+                ciudad: this.Empleados.ciudad,
+                fkPuesto: this.Empleados.fkPuesto,
+                fkDepartamento: this.Empleados.fkDepartamento
             };
   
-            axios.post('https://localhost:7051/Usuario', cuerpo).then((result) => {
+            axios.post('https://localhost:7051/Empleado', cuerpo).then((result) => {
   
                 if (result.status == 200) {
                     document.getElementById("alert").style.display = "block";

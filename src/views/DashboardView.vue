@@ -14,7 +14,7 @@ import { RouterLink, RouterView } from 'vue-router'
               <i class='bx bx-folder'></i>
               <h3>      
               <div class="row">
-              <router-link :to="{ path: '/listar' }" type="button" class="btn btn-outline-secondary">Usuario</router-link>
+              <router-link :to="{ path: '/listar' }" type="button" class="navbar-brand">Usuario</router-link>
               </div>
               </h3>
             </a>
@@ -23,7 +23,7 @@ import { RouterLink, RouterView } from 'vue-router'
               <i class='bx bx-briefcase'></i>
               <h3>      
               <div class="row">
-              <router-link :to="{ path: '/listacliente' }" type="button" class="btn btn-outline-secondary">Cliente</router-link>
+              <router-link :to="{ path: '/listacliente' }" type="button" class="navbar-brand">Cliente</router-link>
               </div>
               </h3>
             </a>
@@ -32,7 +32,7 @@ import { RouterLink, RouterView } from 'vue-router'
               <i class='bx bx-briefcase'></i>
               <h3>      
               <div class="row">
-              <router-link :to="{ path: '/listadepartamento' }" type="button" class="btn btn-outline-secondary">Departamento</router-link>
+              <router-link :to="{ path: '/listadepartamento' }" type="button" class="navbar-brand">Departamento</router-link>
               </div>
               </h3>
               
@@ -42,7 +42,7 @@ import { RouterLink, RouterView } from 'vue-router'
               <i class='bx bx-calendar'></i>
               <h3>      
               <div class="row">
-              <router-link :to="{ path: '/listaempleado' }" type="button" class="btn btn-outline-secondary">Empleado</router-link>
+              <router-link :to="{ path: '/listaempleado' }" type="button" class="navbar-brand">Empleado</router-link>
               </div>
               </h3>
               </a>
@@ -51,7 +51,7 @@ import { RouterLink, RouterView } from 'vue-router'
               <i class='bx bx-folder'></i>
               <h3>      
               <div class="row">
-              <router-link :to="{ path: '/listafactura' }" type="button" class="btn btn-outline-secondary">Factura</router-link>
+              <router-link :to="{ path: '/listafactura' }" type="button" class="navbar-brand">Factura</router-link>
               </div>
               </h3>
             </a>
@@ -60,7 +60,7 @@ import { RouterLink, RouterView } from 'vue-router'
               <i class='bx bx-calendar'></i>
               <h3>      
               <div class="row">
-              <router-link :to="{ path: '/listapuesto' }" type="button" class="btn btn-outline-secondary">Puesto</router-link>
+              <router-link :to="{ path: '/listapuesto' }" type="button" class="navbar-brand">Puesto</router-link>
               </div>
               </h3>
               </a>
@@ -69,7 +69,7 @@ import { RouterLink, RouterView } from 'vue-router'
               <i class='bx bx-calendar'></i>
               <h3>      
               <div class="row">
-              <router-link :to="{ path: '/listaroL' }" type="button" class="btn btn-outline-secondary">Rol</router-link>
+              <router-link :to="{ path: '/listaroL' }" type="button" class="navbar-brand">Rol</router-link>
               </div>
               </h3>
               </a>

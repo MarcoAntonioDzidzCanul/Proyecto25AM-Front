@@ -24,7 +24,7 @@
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                     <button type="button" v-on:click="eliminar(dep.pkDepartamento)" class="btn btn-outline-danger">Eliminar</button>
   
-                    <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button> 
+                    <!-- <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button>  -->
                       
                     
                              
@@ -86,14 +86,14 @@
         
   
       },
-      mostrarFormulario() {
-      window.location.href="/editar";
+      editar() {
+      window.location.href="/editardepartamento";
   
       
   
       },
       crear(){
-        window.location.href="/crear";
+        window.location.href="/creardepartamento";
       }
     },
   

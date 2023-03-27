@@ -41,8 +41,8 @@
 
                             <div class="form-group">
                                 <label for="dirreccion" style="color: black;">Direccion:</label>
-                                <input type="text" class="form-control" name="dirreccion" id="dirreccion" aria-describedby="helpId"
-                                    placeholder="direccion" v-model="Clientes.dirreccion" />
+                                <input type="text" class="form-control" name="direccion" id="direccion" aria-describedby="helpId"
+                                    placeholder="direccion" v-model="Clientes.direccion" />
                             </div>
                         
                     
@@ -69,7 +69,7 @@
   <script>
   import axios from 'axios';
   export default {
-    name: "crearcliente",
+    name: "Crearcliente",
     components: {
   
     },
@@ -82,15 +82,15 @@
     },
     methods: {
         formularioC() {
-            var cuerpo = {
+            var cuerpo1 = {
                 nombre: this.Clientes.nombre,
                 apellidos: this.Clientes.apellidos,
                 telefono: this.Clientes.telefono,
                 email: this.Clientes.email,
-                dirreccion: this.Clientes.dirreccion
+                direccion: this.Clientes.direccion
             };
   
-            axios.post('https://localhost:7051/Cliente', cuerpo).then((result) => {
+            axios.post('https://localhost:7051/Cliente', cuerpo1).then((result) => {
   
                 if (result.status == 200) {
                     document.getElementById("alert").style.display = "block";

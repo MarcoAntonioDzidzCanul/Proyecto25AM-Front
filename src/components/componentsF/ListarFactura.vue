@@ -113,7 +113,7 @@
   
       },
       crear(){
-        window.location.href="/crear";
+        window.location.href="/crearfactura";
       }
     },
   

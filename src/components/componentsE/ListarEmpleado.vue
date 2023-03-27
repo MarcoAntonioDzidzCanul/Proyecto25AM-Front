@@ -33,7 +33,7 @@
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                     <button type="button" v-on:click="eliminar(emp.pkEmpleado)" class="btn btn-outline-danger">Eliminar</button>
   
-                    <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button> 
+                    <!-- <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button>  -->
                       
                     
                              
@@ -125,7 +125,7 @@
   
       },
       crear(){
-        window.location.href="/crear";
+        window.location.href="/crearempleado";
       }
     },
   
