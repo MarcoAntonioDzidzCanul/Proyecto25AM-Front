@@ -41,6 +41,36 @@ const router = createRouter({
           component: () =>import("../components/ListarUsuario.vue")
         },
         {
+          path: '/listacliente',
+          name:'listacliente',
+          component: () => import('../components/componentsC/ListarCliente.vue')
+        },
+        {
+          path: '/listadepartamento',
+          name:'listadepartamento',
+          component: () => import('../components/componentsD/ListarDepartamento.vue')
+        },
+        {
+          path: '/listaempleado',
+          name:'listaempleado',
+          component: () => import('../components/componentsE/ListarEmpleado.vue')
+        },
+        {
+          path: '/listafactura',
+          name:'listafactura',
+          component: () => import('../components/componentsF/ListarFactura.vue')
+        },
+        {
+          path: '/listapuesto',
+          name:'listapuesto',
+          component: () => import('../components/componentsP/ListarPuesto.vue')
+        },
+        {
+          path: '/listarol',
+          name:'listarol',
+          component: () => import('../components/componentsR/ListarRol.vue')
+        },
+        {
           path: '/editar',
           name: 'editar',
           component: () => import('../components/ActualizarUsuario.vue')
@@ -49,7 +79,39 @@ const router = createRouter({
           path: '/crear',
           name: 'crear',
           component: () => import('../components/CrearUsuario.vue')
-        }
+        }, 
+        {
+          path: '/crearcliente',
+          name: 'crearcliente',
+          component: () => import('../components/componentsC/CrearCliente.vue')
+        },
+        {
+          path: '/creardepartamento',
+          name: 'creardepartamento',
+          component: () => import('../components/componentsD/CrearDepartamento.vue')
+        },
+        {
+          path: '/crearempleado',
+          name: 'crearempleado',
+          component: () => import('../components/componentsE/CrearEmpleado.vue')
+        },
+        {
+          path: '/crearfactura',
+          name: 'crearfactura',
+          component: () => import('../components/componentsF/CrearFactura.vue')
+        },
+        {
+          path: '/crearpuesto',
+          name: 'crearpuesto',
+          component: () => import('../components/componentsP/CrearPuesto.vue')
+        },
+        {
+          path: '/crearrol',
+          name: 'crearrol',
+          component: () => import('../components/componentsR/CrearRol.vue')
+        },
+
+        
       ]
       
     } 

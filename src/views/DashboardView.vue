@@ -10,31 +10,71 @@ import { RouterLink, RouterView } from 'vue-router'
               <h3>Dashboard</h3>
             </div>
             
-            <a href="#" class="sidenav_link active">
+            <a href="#" class="sidenav_link ">
               <i class='bx bx-folder'></i>
-              <h3>      <div class="row">
+              <h3>      
+              <div class="row">
               <router-link :to="{ path: '/listar' }" type="button" class="btn btn-outline-secondary">Usuario</router-link>
-            </div></h3>
+              </div>
+              </h3>
             </a>
             
             <a href="#" class="sidenav_link">
               <i class='bx bx-briefcase'></i>
-              <h3>Empleados</h3>
+              <h3>      
+              <div class="row">
+              <router-link :to="{ path: '/listacliente' }" type="button" class="btn btn-outline-secondary">Cliente</router-link>
+              </div>
+              </h3>
             </a>
             
             <a href="#" class="sidenav_link">
-              <i class='bx bx-file'></i>
-              <h3>Empleos</h3>
+              <i class='bx bx-briefcase'></i>
+              <h3>      
+              <div class="row">
+              <router-link :to="{ path: '/listadepartamento' }" type="button" class="btn btn-outline-secondary">Departamento</router-link>
+              </div>
+              </h3>
+              
             </a>
             
             <a href="#" class="sidenav_link">
               <i class='bx bx-calendar'></i>
-              <h3>Servicios</h3>
-              <button disabled class="external_link">
-                <i class='bx bx-link-external' ></i>
-              </button> 
+              <h3>      
+              <div class="row">
+              <router-link :to="{ path: '/listaempleado' }" type="button" class="btn btn-outline-secondary">Empleado</router-link>
+              </div>
+              </h3>
+              </a>
+              
+              <a href="#" class="sidenav_link ">
+              <i class='bx bx-folder'></i>
+              <h3>      
+              <div class="row">
+              <router-link :to="{ path: '/listafactura' }" type="button" class="btn btn-outline-secondary">Factura</router-link>
+              </div>
+              </h3>
             </a>
-          </div>
+
+            <a href="#" class="sidenav_link">
+              <i class='bx bx-calendar'></i>
+              <h3>      
+              <div class="row">
+              <router-link :to="{ path: '/listapuesto' }" type="button" class="btn btn-outline-secondary">Puesto</router-link>
+              </div>
+              </h3>
+              </a>
+
+              <a href="#" class="sidenav_link">
+              <i class='bx bx-calendar'></i>
+              <h3>      
+              <div class="row">
+              <router-link :to="{ path: '/listaroL' }" type="button" class="btn btn-outline-secondary">Rol</router-link>
+              </div>
+              </h3>
+              </a>
+
+
           <div class="sidenav_footer">
             <a href="#" class="sidenav_link">
               <i class='bx bx-rocket'></i>
@@ -46,6 +86,7 @@ import { RouterLink, RouterView } from 'vue-router'
               <i class='bx bxs-chevrons-left'></i>
             </button>
           </div>
+        </div>
         
           
         <main>

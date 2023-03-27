@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="card">
-        <div class="card-header" style="background-color: gray;"><strong style="color:black;">Lista de Cliente</strong></div>
+        <div class="card-header" style="background-color: gray;"><strong style="color:black;">Lista de Empleados</strong></div>
   
         <div class="card_body" style="background-color: gray;">
           <!-- <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-warning">Editar</button> -->
@@ -12,26 +12,28 @@
                 <th style="font-weight: bold;">Id</th>
                 <th style="font-weight: bold;">Nombre</th>
                 <th style="font-weight: bold;">Apellidos</th>
-                <th style="font-weight: bold;">Telefono</th>
-                <th style="font-weight: bold;">Email</th>
                 <th style="font-weight: bold;">Direccion</th>
+                <th style="font-weight: bold;">Ciudad</th>
+                <th style="font-weight: bold;">FkPuesto</th>
+                <th style="font-weight: bold;">FkDepartamento</th>
                 <th style="font-weight: bold;">Acciones</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="cliente in Clientes" :key="cliente.pkCliente">
-                <td style="color:black;">{{ cliente.pkCliente }}</td>
-                <td>{{ cliente.nombre }}</td>
-                <td>{{ cliente.apellidos }}</td>
-                <td>{{ cliente.telefono }}</td>
-                <td>{{ cliente.email }}</td>
-                <td>{{ cliente.direccion }}</td>
+              <tr v-for="emp in Empleados" :key="emp.pkEmpleado">
+                <td style="color:black;">{{ emp.pkEmpleado }}</td>
+                <td>{{ emp.nombre }}</td>
+                <td>{{ emp.apellidos }}</td>
+                <td>{{ emp.dirreccion }}</td>
+                <td>{{ emp.ciudad }}</td>
+                <td>{{ Puesto.find(p => p.pkpuesto == emp.fkPuesto)?.nombre }}</td>
+                <td>{{ Departamento.find(d => d.pkDepartamento === emp.fkDepartamento)?.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                    <button type="button" v-on:click="eliminar(cliente.pkCliente)" class="btn btn-outline-danger">Eliminar</button>
+                    <button type="button" v-on:click="eliminar(emp.pkEmpleado)" class="btn btn-outline-danger">Eliminar</button>
   
-                    <!-- <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button>  -->
+                    <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button> 
                       
                     
                              
@@ -57,7 +59,7 @@
   
   
   export default {
-    name: 'listacliente',
+  name: 'listaempleado',
     components:{
   
     },
@@ -65,31 +67,52 @@
       
       return {
        
-        Clientes: [],
+        Empleados: [],
+        Puesto: [],
+        Departamento: [],
         smg: "",
       };
     },
     created: function () {
-      this.ListaCliente();
-      
+      this.ListaEmpleados();
+      this.ListaPuesto();
+      this.ListaDepartamento();
     },
     methods: {
-      ListaCliente() {
-        axios.get("https://localhost:7051/Cliente").then((result) => {
+      ListaEmpleados() {
+        axios.get("https://localhost:7051/Empleado").then((result) => {
           console.log(result.data);
-          this.Clientes = result.data.result;
+          this.Empleados = result.data.result;
   
   
          });
   
   
       },
+      ListaPuesto() {
+        axios.get("https://localhost:7051/Puesto").then((result) => {
+          console.log(result.data);
+          this.Puesto = result.data.result;
+  
+  
+         });
+        
+      
+  
+      },
+      ListaDepartamento(){
+        axios.get("https://localhost:7051/Departamento").then((result) => {
+          console.log(result.data);
+          this.Departamento = result.data.result;
+      });
+    },
+  
       eliminar(id) {
         var pregunta=window.confirm('¿Desea eliminar el registro?');
   
         if(pregunta===true){
-          axios.delete("https://localhost:7051/Cliente?id=" + id);
-          window.location.href = "/listacliente";
+          axios.delete("https://localhost:7051/Empleado?id=" + id);
+          window.location.href = "/listaempleado";
         }
           
         
@@ -102,7 +125,7 @@
   
       },
       crear(){
-        window.location.href="/crearcliente";
+        window.location.href="/crear";
       }
     },
   
