@@ -76,7 +76,7 @@ const router = createRouter({
           component: () => import('../components/ActualizarUsuario.vue')
         },
         {
-          path: '/editarcliente/: pkCliente',
+          path: '/editarcliente/:pkCliente',
           name: 'editarcliente',
           component: () => import('../components/componentsC/ActualizarCliente.vue')
         },

@@ -24,8 +24,8 @@
               <td>{{ usuario.user }}</td>
               <td>{{ usuario.password }}</td>
               <td>{{ usuario.fechaRegistro }}</td>
-              <td>{{ Empleado.find(e => e.pkEmpleado == usuario.fkEmpleado)?.nombre }}</td>
-              <td>{{ Rol.find(r => r.pkRol === usuario.fkRol)?.nombre }}</td>
+              <td>{{ usuario.empleado.nombre }}</td>
+              <td>{{ usuario.rol.nombre }}</td>
               <td>
                 <div class="btn-group" role="label" aria-label="">
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
@@ -74,19 +74,15 @@ export default {
     return {
      
       Usuarios: [],
-      Empleado: [],
-      Rol: [],
       smg: "",
     };
   },
   created: function () {
     this.ListaUsuario();
-    this.ListaRol();
-    this.ListaEmpleado();
   },
   methods: {
     ListaUsuario() {
-      axios.get("https://localhost:7051/Usuario").then((result) => {
+      axios.get("https://localhost:7051/Usuario/multi").then((result) => {
         console.log(result.data);
         this.Usuarios = result.data.result;
 
@@ -95,24 +91,6 @@ export default {
 
 
     },
-    ListaRol() {
-      axios.get("https://localhost:7051/Rol").then((result) => {
-        console.log(result.data);
-        this.Rol = result.data.result;
-
-
-       });
-      
-    
-
-    },
-    ListaEmpleado(){
-      axios.get("https://localhost:7051/Empleado").then((result) => {
-        console.log(result.data);
-        this.Empleado = result.data.result;
-    });
-  },
-
     eliminar(id) {
       var pregunta=window.confirm('¿Desea eliminar el registro?');
 

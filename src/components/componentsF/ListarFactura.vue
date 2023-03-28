@@ -23,7 +23,7 @@
                 <td>{{ fac.razonSocial }}</td>
                 <td>{{ fac.fecha }}</td>
                 <td>{{ fac.rfc }}</td>
-                <td>{{ Cliente.find(e => e.pkCliente == fac.fkCliente)?.nombre }}</td>
+                <td>{{ fac.cliente.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
@@ -70,12 +70,11 @@
     },
     created: function () {
       this.ListaFactura();
-      this.ListaCliente();
       
     },
     methods: {
       ListaFactura() {
-        axios.get("https://localhost:7051/Factura").then((result) => {
+        axios.get("https://localhost:7051/Factura/multi").then((result) => {
           console.log(result.data);
           this.Facturas = result.data.result;
   
@@ -84,16 +83,6 @@
   
   
       },
-      ListaCliente() {
-        axios.get("https://localhost:7051/Cliente").then((result) => {
-          console.log(result.data);
-          this.Cliente = result.data.result;
-  
-  
-         });
-        
-          
-    },
   
       eliminar(id) {
         var pregunta=window.confirm('¿Desea eliminar el registro?');

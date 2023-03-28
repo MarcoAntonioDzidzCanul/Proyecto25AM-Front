@@ -26,8 +26,8 @@
                 <td>{{ emp.apellidos }}</td>
                 <td>{{ emp.dirreccion }}</td>
                 <td>{{ emp.ciudad }}</td>
-                <td>{{ Puesto.find(p => p.pkpuesto == emp.fkPuesto)?.nombre }}</td>
-                <td>{{ Departamento.find(d => d.pkDepartamento === emp.fkDepartamento)?.nombre }}</td>
+                <td>{{ emp.puesto.nombre}}</td>
+                <td>{{ emp.departamento.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
@@ -75,12 +75,10 @@
     },
     created: function () {
       this.ListaEmpleados();
-      this.ListaPuesto();
-      this.ListaDepartamento();
     },
     methods: {
       ListaEmpleados() {
-        axios.get("https://localhost:7051/Empleado").then((result) => {
+        axios.get("https://localhost:7051/Empleado/multi").then((result) => {
           console.log(result.data);
           this.Empleados = result.data.result;
   
@@ -89,24 +87,7 @@
   
   
       },
-      ListaPuesto() {
-        axios.get("https://localhost:7051/Puesto").then((result) => {
-          console.log(result.data);
-          this.Puesto = result.data.result;
-  
-  
-         });
-        
       
-  
-      },
-      ListaDepartamento(){
-        axios.get("https://localhost:7051/Departamento").then((result) => {
-          console.log(result.data);
-          this.Departamento = result.data.result;
-      });
-    },
-  
       eliminar(id) {
         var pregunta=window.confirm('¿Desea eliminar el registro?');
   

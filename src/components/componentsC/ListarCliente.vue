@@ -75,7 +75,7 @@
     },
     methods: {
       ListaCliente() {
-        axios.get("https://localhost:7051/Cliente").then((result) => {
+        axios.get("https://localhost:7051/Cliente/").then((result) => {
           console.log(result.data);
           this.Clientes = result.data.result;
   
@@ -97,7 +97,7 @@
       },
       editar(pkCliente) {
         console.log(pkCliente);
-      this.$router.push("/editarcliente/" + pkCliente)
+      this.$router.push("/editarcliente/"+pkCliente)
   
       
   
