@@ -25,14 +25,37 @@
                                   id="ciudad" placeholder="ciudad" v-model="form.ciudad" />
                            
 
-                              <label for="" style="color: black;">fkPuesto:</label>       
-                              <input type="text" class="form-control" name="fkPuesto" aria-describedby="helpId"
-                                  id="fkPuesto" placeholder="fkPuesto" v-model="form.fkPuesto" />
-                             
+                                  <div class="row">
+                        <div class="col">
+                            <input type="number" name="fkPuesto" id="fkPuesto" value="" style="display: none;" />
 
-                                  <label for="direccion" style="color: black;">fkDepartamento:</label>
-                              <input type="text" class="form-control" name="fkDepartamento" aria-describedby="helpId"
-                                  id="fkDepartamento" placeholder="fkDepartamento" v-model="form.fkDepartamento" />
+                            <!-- <div class="form-group">
+                                <label for="fkpado">fkpado:</label>
+                                <input type="number" class="form-contdepa" name="fkpado" id="fkpado"
+                                    aria-describedby="helpId" placeholder="fkpado" v-model="Empleados.fkpado" />
+                            </div> -->
+                            <label for="">Puesto:</label>
+                            <select class="form-select" aria-label="Default select example" v-model="nombrepuesto"  v-on:change="convertirPuesto()">
+                                <!-- <option selected></option> -->
+                                <option disabled selected>Seleccionar Puesto</option>
+                                <option v-for="p in Puestos" :key="p.pkpuesto">{{ p.nombre }}</option>
+
+                            </select>
+                        </div>
+                        <div class="col">
+
+                            <input type="number" name="fkDepartamento" id="fkDepartamento" value="" style="display: none;" />
+
+
+                            <label for="">Departamento:</label>
+                            <select class="form-select" aria-label="Default select example" v-model="nombredepartamento" v-on:change="convertidordepa()">
+                                <!-- <option selected></option> -->
+                                <option disabled selected>Seleccionar departamento</option>
+                                <option v-for="depa in Departamentos" :key="depa.pkDepartamento">{{ depa.nombre }}</option>
+
+                            </select>
+                        </div>
+                    </div>
 
 
 
@@ -61,30 +84,44 @@ export default {
 
   data: function() {
       return {
+        Departamentos: {},
+            Puestos: {},
+            Departamentos: {},
+            registrodepa: [],
+            registroPuesto: [],
+            nombrepuesto:"",
+            nombredepartamento:"",
           pkEmpleado : null,
           form: {
               nombre : "",
               apellidos : "",
               dirreccion: "",
               ciudad : "",
-              fkPuesto : "",
-              fkDepartamento : ""
+              fkPuesto:"",
+              fkDepartamento:""
+              
+              
+           
           },
           
           
       }
   },
+  created: function () {
+        this.CargarPuestos_Y_depa();
+    },
   mounted : function(){
       this.pkEmpleado = this.$route.params.pkEmpleado;
       console.log(this.pkEmpleado);
-      axios.get("https://localhost:7051/Empleado/" + this.pkEmpleado).then(datos =>
+      axios.get("https://localhost:7051/Empleado/" + this.pkEmpleado, this.registroPuesto, this.registrodepa).then(datos =>
       {
           this.form.nombre = datos.data.result.nombre;
           this.form.apellidos = datos.data.result.apellidos;
           this.form.dirreccion = datos.data.result.dirreccion;
           this.form.ciudad = datos.data.result.ciudad;
-          this.form.fkPuesto = datos.data.result.fkPuesto;
           this.form.fkDepartamento = datos.data.result.fkDepartamento;
+          this.form.fkPuesto = datos.data.result.fkPuesto;
+          
           console.log(this.form)
       });
 
@@ -96,7 +133,41 @@ export default {
               console.log(data);
           });
           this.$router.push("/listaempleado")
-      }
+      },
+      CargarPuestos_Y_depa() {
+            axios.get('https://localhost:7051/Puesto').then((response) => {
+                this.Puestos = response.data.result;
+
+            })
+
+            axios.get('https://localhost:7051/Departamento').then((response) => {
+                this.Departamentos = response.data.result;
+            })
+
+        },
+         convertidordepa() {
+           
+             axios.get('https://localhost:7051/Departamento/BuscarPorNombre?nombr=' + this.nombredepartamento).then((response) => {
+                this.registrodepa = response.data.result;
+                if (response.status == 200) {
+                    document.getElementById('fkDepartamento').value = this.registrodepa[0].pkDepartamento;
+
+                }
+
+            })
+
+            return true;
+
+        },
+        async convertirPuesto(){
+            await axios.get('https://localhost:7051/Puesto/BuscarPorNombre?nombr=' + this.nombrepuesto).then((response) => {
+                this.registroPuesto = response.data.result;
+                if (response.status == 200) {
+                    document.getElementById('fkPuesto').value = this.registroPuesto[0].pkpuesto;
+                }
+
+            });
+        }
       
   },
  
