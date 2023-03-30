@@ -1,33 +1,33 @@
 <template>
     <div class="container-fluid">
       <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Actualizar Usuario</div>
+          <div class="card-header" style="background-color: gray; color: black;">Actualizar Cliente</div>
           <div class="card-body">
               <form v-on:submit.prevent="editarClien">
                   <div class="form-group">
                       <label for="nombre" style="color: black;">Nombre:</label>
                               <input type="text" class="form-control" name="nombre" aria-describedby="helpId"
-                                  id="nombre" placeholder="nombre" v-model="form.nombre" />
+                                  id="nombre" placeholder="" v-model="form.nombre" />
                               
 
                               <label for="apellidos" style="color: black;">Apellidos:</label>
                               <input type="text" class="form-control" name="apellidos" aria-describedby="helpId"
-                                  id="apellidos" placeholder="apellidos" v-model="form.apellidos" />
+                                  id="apellidos" placeholder="" v-model="form.apellidos" />
                               
 
                               <label for="telefono" style="color: black;">Telefono:</label>
                               <input type="text" class="form-control" name="telefono" aria-describedby="helpId"
-                                  id="telefono" placeholder="telefono" v-model="form.telefono" />
+                                  id="telefono" placeholder="" v-model="form.telefono" />
                             
 
                               <label for="email" style="color: black;">email:</label>
                               <input type="text" class="form-control" name="email" aria-describedby="helpId"
-                                  id="email" placeholder="email" v-model="form.email" />
+                                  id="email" placeholder="" v-model="form.email" />
                            
 
                               <label for="direccion" style="color: black;">direccion:</label>
                               <input type="text" class="form-control" name="direccion" aria-describedby="helpId"
-                                  id="direccion" placeholder="direccion" v-model="form.direccion" />
+                                  id="direccion" placeholder="" v-model="form.direccion" />
                              
 
 
@@ -55,16 +55,16 @@ export default {
 
   },
 
-  data: function() {
+  data(){
       return {
-          pkCliente : null,
+        pkCliente:"",
           form: {
-              "pkCliente" : "",
-              "nombre" : "",
-              "apellidos" : "",
-              "telefono": "",
-              "email" : "",
-              "direccion" : ""
+           
+              nombre: "",
+              apellidos: "",
+              telefono: "",
+              email: "",
+              direccion: ""
           },
           
           
@@ -75,11 +75,12 @@ export default {
       console.log(this.pkCliente);
       axios.get("https://localhost:7051/Cliente/" + this.pkCliente).then(datos =>
       {
-          this.form.nombre = datos.data.value;
-          this.form.apellidos = datos.data.value;
-          this.form.telefono = datos.data.value;
-          this.form.email = datos.data.value;
-          this.form.direccion = datos.data.value;
+          
+          this.form.nombre = datos.data.result.nombre;
+          this.form.apellidos = datos.data.result.apellidos;
+          this.form.telefono = datos.data.result.telefono;
+          this.form.email = datos.data.result.email;
+          this.form.direccion = datos.data.result.direccion;
           console.log(this.form)
       });
 

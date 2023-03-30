@@ -23,8 +23,7 @@
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                     <button type="button" v-on:click="eliminar(rol.pkRol)" class="btn btn-outline-danger">Eliminar</button>
   
-                    <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button> 
-                      
+                    <button type="button" v-on:click="  editar(rol.pkRol)" class="btn btn-outline-primary">Editar</button> 
                     
                              
                   </div>
@@ -40,7 +39,7 @@
   
       </div>
     </div>
-    <button type="button" v-on:click="  editar(pkUsuario)" class="btn btn-outline-primary">Editar</button> 
+    
     <button type="button" v-on:click="  crear()" class="btn btn-outline-danger">Crear</button> 
   </template>
   
@@ -86,8 +85,11 @@
         
   
       },
-      mostrarFormulario() {
-      window.location.href="/editar";
+      editar(pkRol) {
+        console.log(pkRol);
+      this.$router.push("/editarrol/"+ pkRol)
+  
+      
   
       
   

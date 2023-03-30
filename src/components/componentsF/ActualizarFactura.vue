@@ -1,248 +1,105 @@
 <template>
-    <div v-if="formularioVisible">
-   <h2>Editar Usuario</h2>
-   <form @submit.prevent="actualizarUsuario">
-     <label for="user">user:</label>
-     <input type="text" class="form-control" name="user" v-model="Usuario.user" id="user" required/>
+    <div class="container-fluid">
+      <div class="card" style="background-color: gray;">
+          <div class="card-header" style="background-color: gray; color: black;">Actualizar Factura</div>
+          <div class="card-body">
+              <form v-on:submit.prevent="editarFac">
+                  <div class="form-group">
+                      <label for="" style="color: black;">Razon Social:</label>
+                              <input type="text" class="form-control" name="razonSocial" aria-describedby="helpId"
+                                  id="razonSocial" placeholder="Razon Social" v-model="form.razonSocial" />
+                              
+
+                              <label for="" style="color: black;">Fecha:</label>
+                              <input type="text" class="form-control" name="fecha" aria-describedby="helpId"
+                                  id="fecha" placeholder="fecha" v-model="form.fecha" />
+                              
+
+                              <label for="" style="color: black;">RFC:</label>
+                              <input type="text" class="form-control" name="rfc" aria-describedby="helpId"
+                                  id="rfc" placeholder="rfc" v-model="form.rfc" />
+                            
+
+                              <label for="" style="color: black;">fkCliente:</label>
+                              <input type="text" class="form-control" name="fkCliente" aria-describedby="helpId"
+                                  id="fkCliente" placeholder="fkCliente" v-model="form.fkCliente" />
+                           
+
+                              
+                              </div><br/>
+
+                              <div class="btn-group" role="group">
+                                  <button type="submit" class="btn -btn-success">Guardar</button>
+                                  <router-link :to="{name: 'listafactura'}" class="btn btn-danger">Cancelar</router-link>
+                              </div>
+              </form>
+
+          </div>
+          </div>
+          </div>
  
-     <label for="user">password:</label>
-     <input type="text" class="form-control" name="user" v-model="Usuario.password" id="password" required/>
-     
-     <label for="user">FkEmpleado:</label>
-     <input type="text" class="form-control" name="user" v-model="Usuario.fkEmpleado" id="fkEmpleado" required/>
+</template>
+<script>
+import axios from 'axios'
+
+export default {
+  name: 'editarfactura',
+  components: {
+
+  },
+
+  data() {
+      return {
+          pkFactura : null,
+          form: {
+              razonSocial : "",
+              fecha : "",
+              rfc : "",
+              fkCliente : ""
+              
+          },
+          
+          
+      }
+  },
+  mounted : function(){
+      this.pkFactura = this.$route.params.pkFactura;
+      console.log(this.pkFactura);
+      axios.get("https://localhost:7051/Factura/" + this.pkFactura).then(datos =>
+      {
+          this.form.razonSocial = datos.data.result.razonSocial;
+          this.form.fecha = datos.data.result.fecha;
+          this.form.rfc = datos.data.result.rfc;
+          this.form.fkCliente = datos.data.result.fkCliente;
+          console.log(this.form)
+      });
+
+  },
+  methods:{
+      editarFac()
+      {
+          axios.put("https://localhost:7051/Factura/" + this.pkFactura, this.form).then(data =>{
+              console.log(data);
+          });
+          this.$router.push("/listafactura")
+      }
+      
+  },
  
-     <label for="user">FkRol:</label>
-     <input type="text" class="form-control" name="user" v-model="Usuario.fkRol" id="fkRol" required/>
+}
+
+  
+
  
- 
- 
-     
- 
-     
- 
-     <button type="submit">Guardar cambios</button>
-   </form>
- </div>
-     
- 
- 
- 
- 
- 
- 
- 
- 
- 
-     <!-- <div class="container-fluid">
-         <div class="card" style="background-color: gray;">
-             <div class="card-header" style="background-color: gray; color: black;">Actualizar Usuario</div>
-             <small id="helpId" class="form-text" text-muted style="color: black;">Ingrese sus cambios</small>
-             <div class="card-body" style="background-color: gray;">
-                 <form v-on:submit.prevent="formulario">
-                     <div class="row">
-                         <div class="col">
-                             <div class="form-group">
-                                 <label for="user" style="color: black;">Id:</label>
-                                 <input type="number" class="form-control" name="user" aria-describedby="helpId"
-                                     id="pkUsuario" placeholder="ID" v-model="pkUsuario" />
-                                 <small id="peticion" class="form-text" text-muted style="color: black;">Ingresa un Id</small>
-                                 <br>
-                                 <br>
-                                 <div id="botonbusca">
-                                     <button type="button" class="btn btn-outline-primary"
-                                         v-on:click="Buscar(pkUsuario)">Buscar</button>
-                                     &#160
-                                     <router-link :to="{ name: 'listar' }" class="btn btn-outline-danger">Cancelar</router-link>
-                                 </div>
-                             </div>
-                         </div>
-                         <div id="user-password" style="display: none;">
-                             <div class="col">
- 
-                                 <div class="form-group">
-                                     <label for="user" style="color: black;">user:</label>
-                                     <input type="text" class="form-control" name="user" aria-describedby="helpId" id="user"
-                                         placeholder="usuario" value="" />
- 
- 
- 
-                                 </div>
-                             </div>
-                             <div class="col">
-                                 <div class="form-group">
-                                     <label for="password" style="color: black;">Password:</label>
-                                     <input type="text" class="form-control" name="password" id="password"
-                                         aria-describedby="helpId" placeholder="password" value="" />
- 
-                                 </div>
-                             </div>
-                         </div>
- 
-                     </div>
-                     <br>
-                     <div id="fk-empleado-rol" class="row" style="display: none;">
-                         <div class="col">
- 
-                             <div class="form-group">
-                                 <label for="fkEmpleado" style="color: black;">FkEmpleado:</label>
-                                 <input type="number" class="form-control" name="fkEmpleado" id="fkEmpleado"
-                                     aria-describedby="helpId" placeholder="fkEmpleado" value="" />
-                             </div>
-                         </div>
-                         <div class="col">
- 
-                             <div class="form-group">
-                                 <label for="fkRol" style="color: black;">FkRol:</label>
-                                 <input type="number" class="form-control" name="fkRol" id="fkRol" aria-describedby="helpId"
-                                     placeholder="fkRol" value="" />
-                             </div>
-                         </div>
-                     </div>
-                     <br>
-                     <div id="botoncerrar" style="display: none;"><router-link :to="{name:'listar'}" type="button" class="btn btn-outline-primary">Finalizar</router-link>|</div>
-                     <div id="botones" class="row" style="display: none;">
-                         <div class="btn-group" role="group">
-                             <button type="submit" class="btn btn-outline-primary">Editar</button>
-                             <router-link :to="{ name: 'listar' }" class="btn btn-outline-danger">Cancelar</router-link>
-                         </div>
- 
-                     </div>
-                     <br>
-                     <div class="row">
-                         <div id="alert" style="display:none;" class="alert alert-success" role="alert">
-                             {{ smg }}
-                         </div>
-                         <div id="alert2" class="alert alert-warning" role="alert" style="display:none;">{{ bad }}</div>
-                     </div>
-                 </form>
-             </div>
-         </div>
-     </div> -->
- </template>
- 
- <script>
- import axios from 'axios'
- 
- export default {
-     name: 'Editar',
-     components: {
- 
- },
- 
-   data() {
-     return {
-       Usuarios: [],
-       formularioVisible: false,
-       Usuario: {
-         pkUsuario: null,
-         user: '',
-         password: '',
-         fkEmpleado: '', 
-         fkRol: ''
-       }
-     }
-   },
-   mounted() {
-     this.obtenerUsuarios()
-     this.mostrarFormulario()
-     // this.mostrarFormulario()
-     // this.actualizarUsuario()
-   },
-   methods: {
-     obtenerUsuarios() {
-         axios.get('https://localhost:7051/Usuario').then(response => {
-         console.log(response.data);
-         this.Usuarios = response.data;
-         })
-         .catch(error => {
-           console.error(error)
-         })
-     },
-     mostrarFormulario() {
-       axios.get(`https://localhost:7051/Usuario/${this.Usuario.pkUsuario}`)
-         .then(response => {
-           this.Usuario = response.data
-           this.formularioVisible = true
-         })
-         .catch(error => {
-           console.error(error)
-         })
-       
-     },
-     actualizarUsuario() {
-       axios.put(`https://localhost:7051/Usuario?id=${this.Usuario.pkUsuario}`, this.Usuario).then(response => {
-           console.log('Item actualizado:', response.data)
-           this.mostrarFormulario()
-           this.formularioVisible = false
-         })
-         .catch(error => {
-           console.error(error)
-         })
-     }
-   }
- }
- 
-         
-         // formulario() {
-         //     const tiempoTranscurrido = Date.now();
-         //     const hoy = new Date(tiempoTranscurrido);
-         //     var cuerpo = {
-         //         pkUsuario: this.pkUsuario,
-         //         user: document.getElementById('user').value,
-         //         password: document.getElementById('password').value,
-         //         fechaRegistro: hoy.toISOString(),
-         //         fkEmpleado: document.getElementById('fkEmpleado').value,
-         //         fkRol: document.getElementById('fkRol').value,
- 
- 
-         //     };
-         //     axios.put('https://localhost:7051/Usuario?id=' + this.pkUsuario, cuerpo).then((resutl) => {
-         //         console.log(resutl.data);
-         //         document.getElementById('botones').style.display = "none";
-         //         document.getElementById("alert").style.display = "block";
-         //         this.smg = "Se actualizo correctamente";
-         //         document.getElementById('botoncerrar').style.display="block";
-         //     })
-         // },
-         // Buscar(id) {
-         //     if (id > 0) {
-         //         axios.get('https://localhost:7051/Usuario/' + id).then((response) => {
- 
-         //             this.Usuarios = response.data.result
-         //             if (this.Usuarios == null) {
-         //                 document.getElementById('alert2').style.display = "block";
-         //                 this.bad = "No se encontro registro"
-         //             } else {
-         //                 console.log(response.data.result)
-         //                 console.log(id)
-         //                 document.getElementById('botonbusca').style.display = "none";
-         //                 document.getElementById('peticion').style.display = "none";
-         //                 document.getElementById('user-password', 'fk-empleado-rol').style.display = "block";
-         //                 document.getElementById('fk-empleado-rol').style.display = "block";
-         //                 document.getElementById('botones').style.display = "block";
-         //                 document.getElementById('alert2').style.display = "none";
- 
- 
-         //                 document.getElementById('user').value = this.Usuarios.user;
-         //                 document.getElementById('password').value = this.Usuarios.password;
-         //                 document.getElementById('fkEmpleado').value = this.Usuarios.fkEmpleado;
-         //                 document.getElementById('fkRol').value = this.Usuarios.fkRol;
- 
-                         
- 
-         //             }
-                     
-         //         })
-         //     } else {
-         //         document.getElementById('alert2').style.display = "block";
-         //         this.bad = "Ingrese un Id"
-         //     }
- 
- 
-         // }
- 
-     
- 
- 
- 
- </script>
+
+
+          
+
+
+      
+
+  
+
+
+
+</script>

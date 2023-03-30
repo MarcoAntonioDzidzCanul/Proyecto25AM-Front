@@ -71,7 +71,7 @@ const router = createRouter({
           component: () => import('../components/componentsR/ListarRol.vue')
         },
         {
-          path: '/editar/: pkUsuario',
+          path: '/editar/:pkUsuario',
           name: 'editar',
           component: () => import('../components/ActualizarUsuario.vue')
         },
@@ -79,6 +79,36 @@ const router = createRouter({
           path: '/editarcliente/:pkCliente',
           name: 'editarcliente',
           component: () => import('../components/componentsC/ActualizarCliente.vue')
+        },
+        {
+          path: '/editardepartamento/:pkDepartamento',
+          name: 'editardepartamento',
+          component: () => import('../components/componentsD/ActualizarDepartamento.vue')
+
+        },
+        {
+          path: '/editarempleado/:pkEmpleado',
+          name: 'editarempleado',
+          component: () => import('../components/componentsE/ActualizarEmpleado.vue')
+
+        },
+        {
+          path: '/editarfactura/:pkFactura',
+          name: 'editarfactura',
+          component: () => import('../components/componentsF/ActualizarFactura.vue')
+             
+        },
+        {
+          path: '/editarpuesto/:pkpuesto',
+          name: 'editarpuesto',
+          component: () => import('../components/componentsP/ActualizarPuesto.vue')
+
+        },
+        {
+          path: '/editarrol/:pkRol',
+          name: 'editarrol',
+          component: () => import('../components/componentsR/ActualizarRol.vue')
+
         },
         {
           path: '/crear',

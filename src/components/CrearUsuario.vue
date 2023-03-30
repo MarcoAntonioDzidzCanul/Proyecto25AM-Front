@@ -25,11 +25,15 @@
 
                   </div>
                 
-                          <div class="form-group">
-                              <label for="fkEmpleado" style="color: black;">fkEmpleado:</label>
-                              <input type="number" class="form-control" name="fkEmpleado" id="fkEmpleado"
-                                  aria-describedby="helpId" placeholder="fkEmpleado" v-model="Usuarios.fkEmpleado" />
-                          </div>
+                  <div class="col">
+                            <input type="number" name="fkEmpleado" id="fkEmpleado" value="" style="display: none;" />
+                            <label for="">Empleado:</label>
+                            <select class="form-select" aria-label="Default select example" v-model="Nombreempleado">
+                                <!-- <option selected></option> -->
+                                <option v-for="emp in Empleados" :key="emp.pkEmpleado">{{emp.pkEmpleado}}</option>
+
+                            </select>
+                   </div>
                       
                       
 
@@ -71,8 +75,16 @@ export default {
   data() {
       return {
           Usuarios: {},
+          Empleados:[],
+          Nombreempleado: "",
+          Nombrerol:"",
+          Roles:{},
           smg: "",
       };
+  },
+  created: function(){
+  this.ListaEmpleados();
+  this.ListaRol();
   },
   methods: {
       formulario() {
@@ -98,7 +110,28 @@ export default {
               // window.location.href = "dashboard";
 
           })
-      }
+      },
+      ListaEmpleados(){
+        axios.get('https://localhost:7051/Empleado').then((response) => {
+                this.Empleados = response.data.result;
+      });
+    },
+    ListaRol(){
+        axios.get('https://localhost:7051/Rol').then((response) => {
+                this.Roles = response.data.result;
+        });
+    },
+    convertidorEmpleado() {
+           
+           axios.get('https://localhost:7051/GetPorNombreRol?nombre=' + this.Nombreempleado).then((response) => {
+              this.registroRol = response.data.result;
+              if (response.status == 200) {
+                  document.getElementById('fkRol').value = this.registroRol[0].pkRol;
+
+              }
+
+          });
+        }
   }
 }
 </script>
