@@ -1,5 +1,6 @@
 <template>
     <div>
+      <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear</button> 
       <div class="card">
         <div class="card-header" style="background-color: gray;"><strong style="color:black;">Lista de Roles</strong></div>
   
@@ -23,7 +24,7 @@
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                     <button type="button" v-on:click="eliminar(rol.pkRol)" class="btn btn-outline-danger">Eliminar</button>
   
-                    <button type="button" v-on:click="  editar(rol.pkRol)" class="btn btn-outline-primary">Editar</button> 
+                    <button type="button" v-on:click="  editar(rol.pkRol)" class="btn btn-outline-warning">Editar</button> 
                     
                              
                   </div>
@@ -40,7 +41,7 @@
       </div>
     </div>
     
-    <button type="button" v-on:click="  crear()" class="btn btn-outline-danger">Crear</button> 
+
   </template>
   
   <script>

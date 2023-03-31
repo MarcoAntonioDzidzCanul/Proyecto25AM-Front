@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
-        <div class="card">
-            <div class="card-header" style="background-color: gray; color: black;" >Crear Cliente</div>
+        <div class="card" style="background-color: gray;">
+          <div class="card-header" style="background-color: gray; color: black;">Crear Cliente</div>
             <div style="background-color: gray;" class="card-body">
                 <form v-on:submit.prevent="formularioC">
                     <div class="row">
@@ -11,7 +11,6 @@
                                 <label for="nombre" style="color: black;">Nombre:</label>
                                 <input type="text" class="form-control" name="nombre" aria-describedby="helpId" id="nombre"
                                     placeholder="nombre" v-model="Clientes.nombre" />
-                                <small id="helpId" class="form-text" text-muted style="color: black;">Ingrese sus nombres</small>
                             </div>
                         
                         
@@ -19,7 +18,7 @@
                                 <label for="apellidos" style="color: black;">Apellidos:</label>
                                 <input type="text" class="form-control" name="apellidos" id="apellidos"
                                     aria-describedby="helpId" placeholder="apellidos" v-model="Clientes.apellidos" />
-                                <small id="helpId" class="form-text" text-muted style="color: black;">Ingresa sus apellidos</small>
+                               
                             </div>
                         
   

@@ -7,15 +7,15 @@
                   <div class="form-group">
                       <label for="nombre" style="color: black;">Nombre:</label>
                               <input type="text" class="form-control" name="nombre" aria-describedby="helpId"
-                                  id="nombre" placeholder="nombre" v-model="form.nombre" />
+                                  id="nombre" placeholder="Escriba el nombre" v-model="form.nombre" />
                               
 
                               
                               </div><br/>
 
                               <div class="btn-group" role="group">
-                                  <button type="submit" class="btn -btn-success">Guardar</button>
-                                  <router-link :to="{name: 'listadepartamento'}" class="btn btn-danger">Cancelar</router-link>
+                                  <button type="submit" class="btn btn-outline-primary">Guardar</button>
+                                  <router-link :to="{name: 'listadepartamento'}" class="btn btn-outline-danger">Cancelar</router-link>
                               </div>
               </form>
 

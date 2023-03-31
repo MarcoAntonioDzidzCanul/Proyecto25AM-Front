@@ -20,12 +20,12 @@
                                   id="telefono" placeholder="" v-model="form.telefono" />
                             
 
-                              <label for="email" style="color: black;">email:</label>
+                              <label for="email" style="color: black;">Email:</label>
                               <input type="text" class="form-control" name="email" aria-describedby="helpId"
                                   id="email" placeholder="" v-model="form.email" />
                            
 
-                              <label for="direccion" style="color: black;">direccion:</label>
+                              <label for="direccion" style="color: black;">Direccion:</label>
                               <input type="text" class="form-control" name="direccion" aria-describedby="helpId"
                                   id="direccion" placeholder="" v-model="form.direccion" />
                              
@@ -36,8 +36,8 @@
                               </div><br/>
 
                               <div class="btn-group" role="group">
-                                  <button type="submit" class="btn -btn-success">Guardar</button>
-                                  <router-link :to="{name: 'listacliente'}" class="btn btn-danger">Cancelar</router-link>
+                                  <button type="submit" class="btn btn-outline-primary">Guardar</button>
+                                  <router-link :to="{name: 'listacliente'}" class="btn btn-outline-danger">Cancelar</router-link>
                               </div>
               </form>
 

@@ -10,27 +10,27 @@
                                   id="razonSocial" placeholder="Razon Social" v-model="form.razonSocial" />
                               
 
-                              <label for="" style="color: black;">Fecha:</label>
-                              <input type="text" class="form-control" name="fecha" aria-describedby="helpId"
-                                  id="fecha" placeholder="fecha" v-model="form.fecha" />
+                              
                               
 
                               <label for="" style="color: black;">RFC:</label>
                               <input type="text" class="form-control" name="rfc" aria-describedby="helpId"
                                   id="rfc" placeholder="rfc" v-model="form.rfc" />
-                            
 
-                              <label for="" style="color: black;">fkCliente:</label>
-                              <input type="text" class="form-control" name="fkCliente" aria-describedby="helpId"
-                                  id="fkCliente" placeholder="fkCliente" v-model="form.fkCliente" />
-                           
+
+                               <div class="form-group">
+                               <label for="cliente">Selecciona el cliente: </label>
+                               <select class="form-select" aria-label="Default select example" name="cliente" id="cliente" v-model="form.fkCliente">
+                               <option v-for="cliente in Cliente" :value="cliente.pkCliente" :key="cliente.pkCliente">{{cliente.nombre}}</option>
+                               </select>
+                               </div>
 
                               
                               </div><br/>
 
                               <div class="btn-group" role="group">
-                                  <button type="submit" class="btn -btn-success">Guardar</button>
-                                  <router-link :to="{name: 'listafactura'}" class="btn btn-danger">Cancelar</router-link>
+                                  <button type="submit" class="btn btn-outline-primary">Guardar</button>
+                                  <router-link :to="{name: 'listafactura'}" class="btn btn-outline-danger">Cancelar</router-link>
                               </div>
               </form>
 
@@ -39,6 +39,7 @@
           </div>
  
 </template>
+
 <script>
 import axios from 'axios'
 
@@ -52,21 +53,27 @@ export default {
       return {
           pkFactura : null,
           form: {
+              pkFactura: "",
               razonSocial : "",
               fecha : "",
               rfc : "",
               fkCliente : ""
               
           },
+          Cliente:{}
           
           
       }
   },
+  created: function () {
+        this.consultarCliente();    
+      },
   mounted : function(){
       this.pkFactura = this.$route.params.pkFactura;
       console.log(this.pkFactura);
       axios.get("https://localhost:7051/Factura/" + this.pkFactura).then(datos =>
       {
+          this.form.pkFactura = datos.data.result.pkFactura;
           this.form.razonSocial = datos.data.result.razonSocial;
           this.form.fecha = datos.data.result.fecha;
           this.form.rfc = datos.data.result.rfc;
@@ -82,7 +89,14 @@ export default {
               console.log(data);
           });
           this.$router.push("/listafactura")
-      }
+      },
+      consultarCliente() {
+             axios.get("https://localhost:7051/Cliente").then((result) => {
+               console.log(result.data.result);
+               this.Cliente = result.data.result;
+            });
+              
+        },
       
   },
  

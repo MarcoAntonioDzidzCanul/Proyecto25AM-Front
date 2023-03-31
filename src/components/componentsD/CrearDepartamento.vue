@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
-        <div class="card">
-            <div class="card-header" style="background-color: gray; color: black;" >Crear Departamento</div>
+        <div class="card" style="background-color: gray;">
+          <div class="card-header" style="background-color: gray; color: black;">Crear Departamento</div>
             <div style="background-color: gray;" class="card-body">
                 <form v-on:submit.prevent="formulario">
                     <div class="row">
@@ -10,8 +10,8 @@
                             <div class="form-group">
                                 <label for="user" style="color: black;">Nombre:</label>
                                 <input type="text" class="form-control" name="nombre" aria-describedby="helpId" id="nombre"
-                                    placeholder="departamento" v-model="Departamentos.nombre" />
-                                <small id="helpId" class="form-text" text-muted style="color: black;">Ingresa el nombre del departamento</small>
+                                    placeholder="Ingresa el nombre de departammento" v-model="Departamentos.nombre" />
+                                
                             </div>
                         
   

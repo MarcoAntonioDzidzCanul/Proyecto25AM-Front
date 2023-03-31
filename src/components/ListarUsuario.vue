@@ -1,10 +1,11 @@
 <template>
   <div>
+    <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Usuario</button> 
     <div class="card">
       <div class="card-header" style="background-color: gray;"><strong style="color:black;">Lista de Usuarios</strong></div>
 
       <div class="card_body" style="background-color: gray;">
-        <!-- <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-warning">Editar</button> -->
+        
         <table class="table table-dark">
           
           <thead>
@@ -39,7 +40,7 @@
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                   
                   <button type="button" v-on:click="eliminar(usuario.pkUsuario)" class="btn btn-outline-danger">Eliminar</button>
-                  <button type="button" v-on:click="  editar(usuario.pkUsuario)" class="btn btn-outline-primary">Editar</button> 
+                  <button type="button" v-on:click="  editar(usuario.pkUsuario)" class="btn btn-outline-warning">Editar</button> 
                    
                     
                   
@@ -58,8 +59,9 @@
     </div>
   </div>
   
-  <button type="button" v-on:click="crear()" class="btn btn-outline-danger">Crear</button> 
+  
 </template>
+
 
 <script>
 import axios from "axios";

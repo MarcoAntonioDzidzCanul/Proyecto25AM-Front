@@ -13,19 +13,22 @@
                               <label for="password" style="color: black;">Password:</label>
                               <input type="text" class="form-control" name="password" aria-describedby="helpId"
                                   id="password" placeholder="apellidos" v-model="form.password" />
-                              
 
-                             
-                            
 
-                              <label for="fkEmpleado" style="color: black;">FkEmpleado:</label>
-                              <input type="text" class="form-control" name="fkEmpleado" aria-describedby="helpId"
-                                  id="fkEmpleado" placeholder="email" v-model="form.fkEmpleado" />
-                           
+           <div class="form-group">
+           <label for="empleado">Selecciona el empleado:</label>
+           <select class="form-select" aria-label="Default select example" name="empleado" id="empleado" v-model="form.fkEmpleado">
+           <option v-for="empleado in Empleado" :value="empleado.pkEmpleado" :key="empleado.pkEmpleado">{{empleado.nombre}}</option>
+           </select>
+           </div>
 
-                              <label for="fkRol" style="color: black;">FkRol:</label>
-                              <input type="text" class="form-control" name="fkRol" aria-describedby="helpId"
-                                  id="fkRol" placeholder="direccion" v-model="form.fkRol" />
+           <div class="form-group">
+           <label for="rol">Selecciona el rol:</label>
+           <select class="form-select" aria-label="Default select example" name="rol" id="rol" v-model="form.fkRol">
+           <option v-for="rol in Rol" :value="rol.pkRol" :key="rol.pkRol">{{rol.nombre}}</option>
+           
+           </select>                     
+           </div>            
                              
 
 
@@ -34,8 +37,8 @@
                               </div><br/>
 
                               <div class="btn-group" role="group">
-                                  <button type="submit" class="btn -btn-success">Guardar</button>
-                                  <router-link :to="{name: 'listar'}" class="btn btn-danger">Cancelar</router-link>
+                                  <button type="submit" class="btn btn-outline-primary">Guardar</button>
+                                  <router-link :to="{name: 'listar'}" class="btn btn-outline-danger">Cancelar</router-link>
                               </div>
               </form>
 
@@ -56,19 +59,25 @@ export default {
 
   data: function() {
       return {
-          pkUsuario : null,
-          form: {
-              "pkUsuario" : "",
-              "user" : "",
-              "password" : "",
-              "fechaRegistro": "",
-              "fkEmpleado" : "",
-              "fkRol" : ""
-          },
+          pkUsuario: null,
+      form:{
+        pkUsuario:"",
+        user:"",
+        password:"",
+        fechaRegistro:"",
+        fkEmpleado:"",
+        fkRol :""
+      },
+      Empleado:{},
+      Rol:{}
           
           
       }
   },
+  created: function () {
+        this.consultarEmpleado();
+        this.consultarRol();    
+      },
   mounted : function(){
     const Fecha = this.form.fechaRegistro
       this.pkUsuario = this.$route.params.pkUsuario;
@@ -76,6 +85,7 @@ export default {
       console.log(this.pkUsuario);
       axios.get("https://localhost:7051/Usuario/" + this.pkUsuario).then(datos =>
       {
+          this.form.pkUsuario = datos.data.result.pkUsuario;
           this.form.user = datos.data.result.user;
           this.form.password = datos.data.result.password;
           this.form.fechaRegistro = datos.data.result.fechaRegistro;
@@ -92,7 +102,22 @@ export default {
               console.log(data);
           });
           this.$router.push("/listar")
-      }
+      },
+      consultarEmpleado() {
+             axios.get("https://localhost:7051/Empleado").then((result) => {
+               console.log(result.data.result);
+               this.Empleado = result.data.result;
+            });
+              
+        },
+              consultarRol() {
+                axios.get("https://localhost:7051/Rol").then((result) => {
+                  console.log(result.data.result);
+                  this.Rol = result.data.result;
+                });
+                
+            }
+  
       
   },
  

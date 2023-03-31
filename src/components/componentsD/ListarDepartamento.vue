@@ -1,5 +1,6 @@
 <template>
     <div>
+      <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Departamento</button> 
       <div class="card">
         <div class="card-header" style="background-color: gray;"><strong style="color:black;">Lista de Departamentos</strong></div>
   
@@ -23,7 +24,7 @@
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                     <button type="button" v-on:click="eliminar(dep.pkDepartamento)" class="btn btn-outline-danger">Eliminar</button>
-                    <button type="button" v-on:click="  editar(dep.pkDepartamento)" class="btn btn-outline-primary">Editar</button> 
+                    <button type="button" v-on:click="  editar(dep.pkDepartamento)" class="btn btn-outline-warning">Editar</button> 
                     <!-- <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button>  -->
                       
                     
@@ -42,7 +43,6 @@
       </div>
     </div>
     
-    <button type="button" v-on:click="  crear()" class="btn btn-outline-danger">Crear</button> 
   </template>
   
   <script>

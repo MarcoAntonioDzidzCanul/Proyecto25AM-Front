@@ -1,83 +1,67 @@
 <template>
     <div class="container-fluid">
-        <div class="card">
-            <div class="card-header">Crear Empleado</div>
+        <div class="card" style="background-color: gray;">
+          <div class="card-header" style="background-color: gray; color: black;">Crear Empleado</div>
             <div class="card-body">
                 <form v-on:submit.prevent="formulario">
                     <div class="row">
-                        <div class="col">
-
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
-                                <input type="text" class="form-contdepa" name="nombre" aria-describedby="helpId" id="nombre"
-                                    placeholder="usuario" v-model="Empleados.nombre" />
-                                <small id="helpId" class="form-text" text-muted>Ingresa los nombres</small>
+                                <input type="text" class="form-control" name="nombre" aria-describedby="helpId" id="nombre"
+                                    placeholder="nombre" v-model="Empleados.nombre" />
                             </div>
-                        </div>
-                        <div class="col">
+                            </div>
+                        
+                            <div class="row">
                             <div class="form-group">
                                 <label for="apellidos">Apellidos:</label>
-                                <input type="text" class="form-contdepa" name="apellidos" id="apellidos"
+                                <input type="text" class="form-control" name="apellidos" id="apellidos"
                                     aria-describedby="helpId" placeholder="apellidos" v-model="Empleados.apellidos" />
-                                <small id="helpId" class="form-text" text-muted>Ingresa los apellidos</small>
                             </div>
-                        </div>
-                        <div class="col">
+                            </div>
+                        
+                            <div class="row">
                             <div class="form-group">
                                 <label for="dirreccion">Direccion:</label>
-                                <input type="text" class="form-contdepa" name="dirreccion" id="dirreccion"
-                                    aria-describedby="helpId" placeholder="dirreccion" v-model="Empleados.dirreccion" />
-                                <small id="helpId" class="form-text" text-muted>Ingresa una direccion</small>
+                                <input type="text" class="form-control" name="dirreccion" id="dirreccion"
+                                    aria-describedby="helpId" placeholder="direccion" v-model="Empleados.dirreccion" />
                             </div>
                         </div>
 
-                        <div class="col">
+
+                       <div class="row">
                             <div class="form-group">
                                 <label for="ciudad">Ciudad:</label>
-                                <input type="text" class="form-contdepa" name="ciudad" id="ciudad"
+                                <input type="text" class="form-control" name="ciudad" id="ciudad"
                                     aria-describedby="helpId" placeholder="ciudad" v-model="Empleados.ciudad" />
-                                <small id="helpId" class="form-text" text-muted>Ingresa una ciudad</small>
                             </div>
-                        </div>
+                            
+                        
 
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col">
-                            <input type="number" name="fkpuesto" id="fkpuesto" value="" style="display: none;" />
-
-                            <!-- <div class="form-group">
-                                <label for="fkpado">fkpado:</label>
-                                <input type="number" class="form-contdepa" name="fkpado" id="fkpado"
-                                    aria-describedby="helpId" placeholder="fkpado" v-model="Empleados.fkpado" />
-                            </div> -->
+                      
+                            <input type="number" name="fkpuesto" id="fkpuesto" value="" style="display: none;" />        
                             <label for="">Puesto:</label>
                             <select class="form-select" aria-label="Default select example" v-model="nombrepuesto"  v-on:change="convertirPuesto()">
-                                <!-- <option selected></option> -->
                                 <option disabled selected>Seleccionar Puesto</option>
                                 <option v-for="p in Puestos" :key="p.pkpuesto">{{ p.nombre }}</option>
-
                             </select>
-                        </div>
-                        <div class="col">
+                       
+                        
 
                             <input type="number" name="fkDepartamento" id="fkDepartamento" value="" style="display: none;" />
-
-
                             <label for="">Departamento:</label>
-                            <select class="form-select" aria-label="Default select example" v-model="Nombredepa" v-on:change="convertidordepa()">
-                                <!-- <option selected></option> -->
+                            <select class="form-select" aria-label="Default select example" v-model="Nombredepa" v-on:change="convertidordepa()">             
                                 <option disabled selected>Seleccionar departamento</option>
                                 <option v-for="depa in Departamentos" :key="depa.pkDepartamento">{{ depa.nombre }}</option>
-
                             </select>
-                        </div>
-                    </div>
+                        
                     <br>
                     <div class="row">
                         <div class="btn-group" depae="group" id="botonesopcion">
-                            |<button type="submit" class="btn btn-outline-primary">Agregar</button>|
-                            |<router-link :to="{ name: 'listaempleado' }" class="btn btn-outline-danger">Cancelar</router-link>|
+                            <button type="submit" class="btn btn-outline-primary">Agregar</button>
+                            <router-link :to="{ name: 'listaempleado' }" class="btn btn-outline-danger">Cancelar</router-link>
                         </div>
                         <router-link :to="{ name: 'listaempleado' }" class="btn btn-outline-primary" id="finaliza"
                             style="display: none;">Finalizar</router-link>
@@ -140,7 +124,7 @@ export default {
                 if (result.status == 200) {
                     document.getElementById("alert").style.display = "block";
                     document.getElementById('botonesopcion').style.display = "none";
-                    this.smg = "agregado exitosamente :D/";
+                    this.smg = "Se agrego correctamento";
                     document.getElementById('finaliza').style.display = "block";
                     console.log(result);
                 }
