@@ -124,7 +124,7 @@ export default {
                 if (result.status == 200) {
                     document.getElementById("alert").style.display = "block";
                     document.getElementById('botonesopcion').style.display = "none";
-                    this.smg = "Se agrego correctamento";
+                    this.smg = "Se creo correctamente";
                     document.getElementById('finaliza').style.display = "block";
                     console.log(result);
                 }
