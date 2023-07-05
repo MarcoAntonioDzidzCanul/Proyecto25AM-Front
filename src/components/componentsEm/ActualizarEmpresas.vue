@@ -1,30 +1,30 @@
 <template>
     <div class="container-fluid">
-      <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Actualizar Empleado</div>
+      <div class="card" style="background-color: #333333;">
+          <div class="card-header" style="background-color: #2E8B57; color: white;">Actualizar Empleado</div>
           <div class="card-body">
               <form v-on:submit.prevent="editarEmpre">
                   <div class="form-group">
-                      <label for="" style="color: black;">Nombre:</label>
+                      <label for="" style="color: white;">Nombre:</label>
                               <input type="text" class="form-control" name="nombre" aria-describedby="helpId"
                                   id="nombre" placeholder="nombre" v-model="form.nombre" />
                               
 
-                              <label for="" style="color: black;">Direccion:</label>
+                              <label for="" style="color: white;">Direccion:</label>
                               <input type="text" class="form-control" name="direccion" aria-describedby="helpId"
                                   id="direccion" placeholder="direccion" v-model="form.direccion" />
                               
 
-                              <label for="" style="color: black;">FK_Departamento:</label>
+                              <label for="" style="color: white;">FK_Departamento:</label>
                               <input type="text" class="form-control" name="fk_Departamento" aria-describedby="helpId"
                                   id="fk_Departamento" placeholder="fk_Departamento" v-model="form.fk_Departamento" />
                             
 
-                              <label for="" style="color: black;">FK_Empleado:</label>
+                              <label for="" style="color: white;">FK_Empleado:</label>
                               <input type="text" class="form-control" name="fk_Empleado" aria-describedby="helpId"
                                   id="fk_Empleado" placeholder="fk_Empleado" v-model="form.fk_Empleado " />
 
-                                  <label for="" style="color: black;">FK_Factura:</label>
+                                  <label for="" style="color: white;">FK_Factura:</label>
                               <input type="text" class="form-control" name="fk_Factura" aria-describedby="helpId"
                                   id="fk_Factura" placeholder="fk-Factura" v-model="form.fk_Factura" />
 

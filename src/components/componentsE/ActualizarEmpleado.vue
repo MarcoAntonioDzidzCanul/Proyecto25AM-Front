@@ -1,30 +1,30 @@
 <template>
     <div class="container-fluid">
-      <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Actualizar Empleado</div>
+      <div class="card" style="background-color: #333333;">
+          <div class="card-header" style="background-color: #2E8B57; color: white;">Actualizar Empleado</div>
           <div class="card-body">
               <form v-on:submit.prevent="editarEmp">
                   <div class="form-group">
-                      <label for="" style="color: black;">Nombre:</label>
+                      <label for="" style="color: white;">Nombre:</label>
                               <input type="text" class="form-control" name="nombre" aria-describedby="helpId"
                                   id="nombre" placeholder="nombre" v-model="form.nombre" />
                               
 
-                              <label for="" style="color: black;">Apellidos:</label>
+                              <label for="" style="color: white;">Apellidos:</label>
                               <input type="text" class="form-control" name="apellidos" aria-describedby="helpId"
                                   id="apellidos" placeholder="apellidos" v-model="form.apellidos" />
                               
 
-                              <label for="" style="color: black;">Direccion:</label>
+                              <label for="" style="color: white;">Direccion:</label>
                               <input type="text" class="form-control" name="direccion" aria-describedby="helpId"
                                   id="direccion" placeholder="direccion" v-model="form.dirreccion" />
                             
 
-                              <label for="" style="color: black;">Ciudad:</label>
+                              <label for="" style="color: white;">Ciudad:</label>
                               <input type="text" class="form-control" name="ciudad" aria-describedby="helpId"
                                   id="ciudad" placeholder="ciudad" v-model="form.ciudad" />
 
-                                  <label for="" style="color: black;">FKPuesto:</label>
+                                  <label for="" style="color: white;">FKPuesto:</label>
                               <input type="text" class="form-control" name="fkPuesto" aria-describedby="helpId"
                                   id="fkPuesto" placeholder="fkPuesto" v-model="form.fkPuesto" />
 

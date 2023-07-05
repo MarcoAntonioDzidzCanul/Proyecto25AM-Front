@@ -1,11 +1,11 @@
 <template>
     <div class="container-fluid">
-      <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Actualizar Puesto</div>
+      <div class="card" style="background-color: #333333;">
+          <div class="card-header" style="background-color:#2E8B57; color: white;">Actualizar Puesto</div>
           <div class="card-body">
               <form v-on:submit.prevent="editarPuesto">
                   <div class="form-group">
-                      <label for="nombre" style="color: black;">Nombre:</label>
+                      <label for="nombre" style="color: white;">Nombre:</label>
                               <input type="text" class="form-control" name="nombre" aria-describedby="helpId"
                                   id="nombre" placeholder="Escriba el nombre" v-model="form.nombre" />
                              

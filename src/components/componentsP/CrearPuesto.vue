@@ -1,14 +1,14 @@
 <template>
     <div class="container-fluid">
-        <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Crear Puesto</div>
-            <div style="background-color: gray;" class="card-body">
+        <div class="card" style="background-color: #333333;">
+          <div class="card-header" style="background-color: #2E8B57; color: white;">Crear Puesto</div>
+            <div style="background-color: #333333;" class="card-body">
                 <form v-on:submit.prevent="formulario">
                     <div class="row">
                         
   
                             <div class="form-group">
-                                <label for="nombre" style="color: black;">Nombre:</label>
+                                <label for="nombre" style="color: white;">Nombre:</label>
                                 <input type="text" class="form-control" name="nombre" aria-describedby="helpId" id="nombre"
                                     placeholder="usuario" v-model="Puestos.nombre" />
                           

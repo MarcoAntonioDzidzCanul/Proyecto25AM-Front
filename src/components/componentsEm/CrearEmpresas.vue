@@ -1,12 +1,12 @@
 <template>
     <div class="container-fluid">
-        <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Crear Empresas</div>
+        <div class="card" style="background-color: #333333;">
+          <div class="card-header" style="background-color: #2E8B57; color: white;">Crear Empresas</div>
             <div class="card-body">
                 <form v-on:submit.prevent="formulario">
                     <div class="row">
                             <div class="form-group">
-                                <label for="nombre">Nombre:</label>
+                                <label for="nombre" style="color: white;">Nombre:</label>
                                 <input type="text" class="form-control" name="nombre" aria-describedby="helpId" id="nombre"
                                     placeholder="nombre" v-model="Empresas.nombre" />
                             </div>
@@ -14,7 +14,7 @@
                         
                             <div class="row">
                             <div class="form-group">
-                                <label for="direccion">Direccion:</label>
+                                <label for="direccion" style="color: white;">Direccion:</label>
                                 <input type="text" class="form-control" name="direccion" id="direccion"
                                     aria-describedby="helpId" placeholder="direccion" v-model="Empresas.dirreccion" />
                             </div>
@@ -23,14 +23,14 @@
 
                        <div class="row">
                             <div class="form-group">
-                                <label for="fk_Departamento">fk_Departamento:</label>
+                                <label for="fk_Departamento" style="color: white;">fk_Departamento:</label>
                                 <input type="text" class="form-control" name="fk_Departamento" id="ciudad"
                                     aria-describedby="helpId" placeholder="fk_Departamento" v-model="Empresas.fk_Departamento" />
                             </div>
 
                             <div class="row">
                             <div class="form-group">
-                                <label for="fk_Empleado">fk_Empleado:</label>
+                                <label for="fk_Empleado" style="color: white;">fk_Empleado:</label>
                                 <input type="text" class="form-control" name="fk_Empleado" id="fk_Empleado"
                                     aria-describedby="helpId" placeholder="fkPuesto" v-model="Empresas.fk_Empleado" />
                             </div>
@@ -38,7 +38,7 @@
 
                             <div class="row">
                             <div class="form-group">
-                                <label for="fk_Factura">FK_Factura:</label>
+                                <label for="fk_Factura" style="color: white;">FK_Factura:</label>
                                 <input type="text" class="form-control" name="fk_Factura" id="fk_Factura"
                                     aria-describedby="helpId" placeholder="fk_Factura" v-model="Empresas.fk_Factura" />
                             </div>

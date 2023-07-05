@@ -1,26 +1,26 @@
 <template>
     <div class="container-fluid">
-      <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Actualizar Cliente</div>
+      <div class="card" style="background-color: #333333;">
+          <div class="card-header" style="background-color: #2E8B57; color:white;">Actualizar Cliente</div>
           <div class="card-body">
               <form v-on:submit.prevent="editarClien">
                   <div class="form-group">
-                      <label for="nombre" style="color: black;">Nombre:</label>
+                      <label for="nombre" style="color: white;">Nombre:</label>
                               <input type="text" class="form-control" name="nombre" aria-describedby="helpId"
                                   id="nombre" placeholder="" v-model="form.nombre" />
                               
 
-                              <label for="apellidos" style="color: black;">Apellidos:</label>
+                              <label for="apellidos" style="color: white;">Apellidos:</label>
                               <input type="text" class="form-control" name="apellidos" aria-describedby="helpId"
                                   id="apellidos" placeholder="" v-model="form.apellidos" />
                               
 
-                              <label for="telefono" style="color: black;">Telefono:</label>
+                              <label for="telefono" style="color: white;">Telefono:</label>
                               <input type="text" class="form-control" name="telefono" aria-describedby="helpId"
                                   id="telefono" placeholder="" v-model="form.telefono" />
                             
 
-                              <label for="email" style="color: black;">Email:</label>
+                              <label for="email" style="color: white;">Email:</label>
                               <input type="text" class="form-control" name="email" aria-describedby="helpId"
                                   id="email" placeholder="" v-model="form.email" />
                            

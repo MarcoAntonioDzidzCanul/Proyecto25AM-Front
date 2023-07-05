@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="container">
     <h1 class="title">Inicio de sesion</h1>
     <form action class="form" @submit.prevent="login">
       <label class="form-label" for="#email">Email:</label>
@@ -28,11 +28,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.login {
-  padding: 2rem;
+.container {
+  // padding: 2rem;
+  // display: flex;
+  // justify-content: center; /* Centra horizontalmente el contenido */
+  // align-items: center; /* Centra verticalmente el contenido */
+    // display: flex;
+    // place-items: flex-start;
+    // flex-wrap: wrap;
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+  justify-content: center; /* Centra verticalmente el contenido */
+  align-items: center; /* Centra horizontalmente el contenido */
+  height: 100vh; /* Ajusta la altura del contenedor al 100% de la ventana */
+  margin: 0 auto;
+  padding: 0 ;
+  
 }
 .title {
   text-align: center;
+
 }
 .form {
   margin: 3rem auto;
@@ -46,6 +61,7 @@ export default {
   border-radius: 5px;
   padding: 40px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
+  
 }
 .form-label {
   margin-top: 2rem;

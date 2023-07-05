@@ -1,21 +1,21 @@
 <template>
     <div class="container-fluid">
-        <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Crear Cliente</div>
-            <div style="background-color: gray;" class="card-body">
+        <div class="card" style="background-color:  #333333;">
+          <div class="card-header" style="background-color:#2E8B57; color: white;">Crear Cliente</div>
+            <div style="background-color:  #333333;" class="card-body">
                 <form v-on:submit.prevent="formularioC">
                     <div class="row">
                         
   
                             <div class="form-group">
-                                <label for="nombre" style="color: black;">Nombre:</label>
+                                <label for="nombre" style="color: white;">Nombre:</label>
                                 <input type="text" class="form-control" name="nombre" aria-describedby="helpId" id="nombre"
                                     placeholder="nombre" v-model="Clientes.nombre" />
                             </div>
                         
                         
                             <div class="form-group">
-                                <label for="apellidos" style="color: black;">Apellidos:</label>
+                                <label for="apellidos" style="color: white;">Apellidos:</label>
                                 <input type="text" class="form-control" name="apellidos" id="apellidos"
                                     aria-describedby="helpId" placeholder="apellidos" v-model="Clientes.apellidos" />
                                
@@ -25,7 +25,7 @@
                     </div>
                   
                             <div class="form-group">
-                                <label for="telefono" style="color: black;">Telefono:</label>
+                                <label for="telefono" style="color: white;">Telefono:</label>
                                 <input type="text" class="form-control" name="telefono" id="telefono"
                                     aria-describedby="helpId" placeholder="telefono" v-model="Clientes.telefono" />
                             </div>
@@ -33,7 +33,7 @@
                         
   
                             <div class="form-group">
-                                <label for="email" style="color: black;">Email:</label>
+                                <label for="email" style="color: white;">Email:</label>
                                 <input type="text" class="form-control" name="email" id="email" aria-describedby="helpId"
                                     placeholder="email" v-model="Clientes.email" />
                             </div>

@@ -1,14 +1,14 @@
 <template>
     <div class="container-fluid">
-        <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Crear Factura</div>
+        <div class="card" style="background-color: #333333;">
+          <div class="card-header" style="background-color: #2E8B57; color: white;">Crear Factura</div>
             <div class="card-body">
                 <form v-on:submit.prevent="formulario">
                     <div class="row">
                         <div class="col">
 
                             <div class="form-group">
-                                <label for="razonsocial">Razon Social:</label>
+                                <label for="razonsocial"  style="color: white;">Razon Social:</label>
                                 <input type="text" class="form-control" name="razonsocial" aria-describedby="helpId"
                                     id="razonsocial" placeholder="Escriba su razon social" v-model="Facturas.razonSocial" />
                             </div>

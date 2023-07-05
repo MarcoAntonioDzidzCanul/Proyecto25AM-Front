@@ -1,11 +1,11 @@
 <template>
     <div class="container-fluid">
-      <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Actualizar Factura</div>
+      <div class="card" style="background-color: #333333;">
+          <div class="card-header" style="background-color: #2E8B57; color: white;">Actualizar Factura</div>
           <div class="card-body">
               <form v-on:submit.prevent="editarFac">
                   <div class="form-group">
-                      <label for="" style="color: black;">Razon Social:</label>
+                      <label for="" style="color: white;">Razon Social:</label>
                               <input type="text" class="form-control" name="razonSocial" aria-describedby="helpId"
                                   id="razonSocial" placeholder="Razon Social" v-model="form.razonSocial" />
                               

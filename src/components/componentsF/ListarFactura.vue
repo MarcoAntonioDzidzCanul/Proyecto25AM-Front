@@ -2,9 +2,9 @@
     <div>
       <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Factura</button> 
       <div class="card">
-        <div class="card-header" style="background-color: gray;"><strong style="color:black;">Lista de Facturas</strong></div>
+        <div class="card-header" style="background-color: #2E8B57;"><strong style="color:white;">Lista de Facturas</strong></div>
   
-        <div class="card_body" style="background-color: gray;">
+        <div class="card_body" style="background-color: #2E8B57;">
           <!-- <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-warning">Editar</button> -->
           <table class="table table-dark">
             

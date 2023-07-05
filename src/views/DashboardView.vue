@@ -1,312 +1,149 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 </script>
-<template> 
-    <div id="page_wrapper">
-        <div id="sidenav" class="sidenav">
-          <div class="sidenav_header">
-            <div class="logo_section">
-              <i class='bx bxl-foursquare'></i>
-              <h3>Dashboard</h3>
-            </div>                   
-            
-            <a href="#" class="sidenav_link">
-              <i class='bx bx-briefcase'></i>
-              <h3>      
-              <div class="row">
-              <router-link :to="{ path: '/listacliente' }" type="button" class="navbar-brand">Cliente</router-link>
+<template>
+  <div id="body">
+      <div id="menuxc">
+          <section id="menu">
+              <div id="logo">
+                  <img id="icon"
+                      src="https://media.istockphoto.com/id/1125625274/es/vector/la-letra-elegante-creativa-moderna-%C3%BAnica-d-basado-en-plantilla-de-logotipo-de-icono-de-vector.jpg?s=612x612&w=0&k=20&c=jWpj2H6PO5yjF8xLZZ69MVvY9tbg8xyWHWCyFIJpmZU=">
+                  <h2>Inicio</h2>
               </div>
-              </h3>
-            </a>
-            
-            <a href="#" class="sidenav_link">
-              <i class='bx bx-briefcase'></i>
-              <h3>      
-              <div class="row">
-              <router-link :to="{ path: '/listadepartamento' }" type="button" class="navbar-brand">Departamento</router-link>
+              <div id="items">
+                  
+                  <li>
+                      <RouterLink :to="{ path: '/listacliente' }"><i class="fa-solid fa-bars"></i> Cliente</RouterLink>
+                  </li>
+                  
+                  <li>
+                      <RouterLink :to="{ path: '/listadepartamento' }"><i class="fa-solid fa-bars"></i> Departamento</RouterLink>
+                  </li>
+                  <li>
+                      <RouterLink :to="{ path: '/listaempleado' }"><i class="fa-solid fa-bars"></i> Empleados</RouterLink>
+                  </li>
+                  <li>
+                      <RouterLink :to="{ path: '/listarEmpresas' }"><i class="fa-solid fa-bars"></i> Empresas</RouterLink>
+                  </li>
+                  <li>
+                      <RouterLink :to="{ path: '/listafactura' }"><i class="fa-solid fa-bars"></i> Factura</RouterLink>
+                  </li>
+                  <li>
+                      <RouterLink :to="{ path: '/listapuesto' }"><i class="fa-solid fa-bars"></i> Puesto</RouterLink>
+                  </li>
+                  <li>
+                      <RouterLink to="/"><i class="fa-solid fa-bars"></i> Salir</RouterLink>
+                  </li>
               </div>
-              </h3>
               
-            </a>
-            
-            <a href="#" class="sidenav_link">
-              <i class='bx bx-calendar'></i>
-              <h3>      
-              <div class="row">
-              <router-link :to="{ path: '/listaempleado' }" type="button" class="navbar-brand">Empleado</router-link>
-              </div>
-              </h3>
-              </a>
-
-              <a href="#" class="sidenav_link">
-              <i class='bx bx-calendar'></i>
-              <h3>      
-              <div class="row">
-              <router-link :to="{ path: '/listarEmpresas' }" type="button" class="navbar-brand">Empresas</router-link>
-              </div>
-              </h3>
-              </a>
-              
-              <a href="#" class="sidenav_link ">
-              <i class='bx bx-folder'></i>
-              <h3>      
-              <div class="row">
-              <router-link :to="{ path: '/listafactura' }" type="button" class="navbar-brand">Factura</router-link>
-              </div>
-              </h3>
-            </a>
-
-            <a href="#" class="sidenav_link">
-              <i class='bx bx-calendar'></i>
-              <h3>      
-              <div class="row">
-              <router-link :to="{ path: '/listapuesto' }" type="button" class="navbar-brand">Puesto</router-link>
-              </div>
-              </h3>
-              </a>
-
-      
+          </section>
           
-            <button id="nav_collapse_btn">
-              <i class='bx bxs-chevrons-left'></i>
-            </button>
-          </div>
-        </div>
-        
-          
-        <main>
-          <header>
-            <!-- <div class="row">
-              <router-link :to="{ path: '/listar' }" type="button" class="btn btn-outline-secondary">Listar</router-link>
-            </div> -->
-            <RouterView></RouterView>
-           
-            </header>
-        </main>
-        
-        
       </div>
+      <main>
+        <header>
+          <!-- <div class="row">
+            <router-link :to="{ path: '/listar' }" type="button" class="btn btn-outline-secondary">Listar</router-link>
+          </div> -->
+          <RouterView></RouterView>
+         
+          </header>
+      </main>
+  </div>
+</template>
 
-    </template>
+                  
+
+
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
-
-:root {
-  --accent-clr: #131313;
-  --accent-dark: #000000;
-  --accent-light: rgba(155, 155, 155, .1);
-  --text: seashell;
-}
-
-.dark_mode {
-  --accent-clr: #f2f2f2;
-  --accent-dark: #fff;
-  --accent-light: rgba(155, 155, 155, .1);
-  --text: black;
-}
-
-#page_wrapper {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  font-family: 'Lato', sans-serif;
-  box-sizing: border-box;
-  background-color: var(--accent-dark);
-}
-
-.sidenav {
-  background-color: var(--accent-clr);
-  height: 100vh;
-  padding-inline: 8px;
-  display: flex;
-  flex-direction: column;
+#menuxc {
+  background: #E5E7EB;
   position: relative;
-  justify-content: space-between;
+  width: 100vw; /* Ancho igual al 100% del viewport (ventana del navegador) */
+  height: 100vh; /* Altura igual al 100% del viewport */
+}
+#body{
+/* height: 100vh;
+width: 100vw;  */
+display: grid;
+grid-template-columns: 260px 1fr;
+font-family: 'Lato', sans-serif;
+box-sizing: border-box;
+/* background-color: var(--accent-dark); */
+/* Ancho igual al 100% del viewport (ventana del navegador) */
+/* Altura igual al 100% del viewport */
+width: 100vw; /* Ancho igual al 100% del viewport (ventana del navegador) */
+height: 100vh; /* Altura igual al 100% del viewport */
+margin: 0;
+padding: 0;
+
+background: #E5E7EB;
+position: relative;
+}
+#menu{
+ 
+  background: #111827;
+  width: 250px;
+  height:100%;
+  
 }
 
-.sidenav_link {
+#logo{
   display: flex;
   align-items: center;
-  padding: 10px;
-  margin-bottom: 2px;
-} 
-
-.sidenav_link:hover {
-  background-color: var(--accent-light);
-  border-radius: 8px;
+  color:#fff;
+  padding: 30px 0 0;
 }
-
-.sidenav_link.active {
-  font-weight: 700;
-  background-color: var(--accent-light);
-  border-radius: 8px;
-}
-
-.sidenav_link i {
-  color: var(--text);
-}
-
-.sidenav_link:hover > h3, 
-.sidenav_link:hover i {
-  color: var(--text);
-}
-
-.logo_section {
-  height: 60px;
-  margin-top: 16px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 48px;
-  padding-inline: 14px;
-}
-
-.logo_section i {
-  color: var(--text);
-}
-
-.logo_section h3 {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-#nav_collapse_btn {
-  position: absolute;
-  top: 72px;
-  left: 240px;
-  transition: 250ms ease-out;
-  background-color: var(--accent-dark);
-  border-radius: 99px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 4px solid var(--accent-light);
-  height: 40px;
+#logo img{
   width: 40px;
+  margin-right: 15px;
+  margin-left: 10px;
+  margin-bottom: 8px;
+
+}
+
+#items li{
+  list-style: none;
+  padding: 19px 0;
+  transition: 0.3s ease;
+}
+
+#items li:hover{
+  background: #253047;
   cursor: pointer;
 }
 
-#nav_collapse_btn > i {
-  color: var(--text);
-  font-size: 18px;
-  margin-left: 8px;
+#items li:nth-child(1){
+  border-left: 4px solid #fff;
 }
 
-.bx {
-  font-size: 22px;
-  margin-right: 8px;
+#items li i{
+  color :rgb(134, 141, 151);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  margin:0 10px 0 25px;
 }
 
-h3 {
-  color: var(--text);
-  font-size: 16px;
-  letter-spacing: .5px;
+#items li:hover i,
+#items li:hover a
+{
+  color: #F3F4F6;
 }
 
-a {
+#items li i a{
   text-decoration: none;
+  color:rgb(134, 141, 151);
+  font-weight: 300px;
+  transition: 0.3s ease;
 }
 
-.bx-calendar {
-  position: relative;
-}
 
-.external_link {
-  border: none;
-  background-color: transparent;
-  position: absolute;
-  left: 210px;
-  top: 266px;
-}
 
-.sidenav_footer {
-  margin-bottom: 12px;
-}
 
-main {
-  padding-inline: 32px;
-}
-
-header {
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-}
-
-h2 {
-  font-size: 32px;
-  font-weight: 300;
-  margin-bottom: 12px;
-  color: var(--text);
-}
-
-p {
-  line-height: 145%;
-  letter-spacing: .25px;
-  color: var(--text);
-  margin-bottom: 32px;
-}
-
-#theme_switch {
-  background-color: transparent;
-  border: none;
-  color: var(--text);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  padding: 4px;
-}
-
-#theme_switch:hover {
-  background-color: var(--accent-light);
-}
-
-.bx-sun {
-  color: var(--text);
-  padding-left: 8px;
-}
-
-.chart_container {
-  width: 90%;
-  max-width: 600px;
-  background-color: var(--accent-light);
-  border-radius: 12px;
-  padding: 30px;
-  border: 1px solid var(--accent-light);
-  box-shadow: 
-    0px 5px 20px rgba(0, 0, 0, 0.1),
-    0px 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-.collapsed #sidenav {
-  width: 48px;
-  transition: 250ms ease-out;
-}
-
-.collapsed #nav_collapse_btn {
-  left: 44px;
-  transition: 250ms ease-out;
-}
-
-.collapsed .external_link {
-  display: none;
-}
-
-.collapsed .sidenav_link {
-  width: 22px;
-}
-
-.collapsed h3 {
-  display: none;
-}
-
-#page_wrapper.collapsed {
-  grid-template-columns: 68px 1fr;
-  transition: 250ms ease-out;
-}
-</style>    
+</style>  
 
 <script>
 export default {

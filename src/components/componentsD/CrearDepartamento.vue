@@ -1,32 +1,32 @@
 <template>
     <div class="container-fluid">
-        <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Crear Departamento</div>
-            <div style="background-color: gray;" class="card-body">
+        <div class="card" style="background-color: #333333;">
+          <div class="card-header" style="background-color: #2E8B57; color: white;">Crear Departamento</div>
+            <div style="background-color: #333333;" class="card-body">
                 <form v-on:submit.prevent="formulario">
                     <div class="row">
                         
   
                             <div class="form-group">
-                                <label for="nombre" style="color: black;">Nombre:</label>
+                                <label for="nombre" style="color: white;">Nombre:</label>
                                 <input type="text" class="form-control" name="nombre" aria-describedby="helpId" id="nombre"
                                     placeholder="Ingresa el nombre de departammento" v-model="Departamentos.nombre" />
                             </div>
 
                             <div class="form-group">
-                                <label for="direccion" style="color: black;">Direccion:</label>
+                                <label for="direccion" style="color: white;">Direccion:</label>
                                 <input type="text" class="form-control" name="direccion" aria-describedby="helpId" id="direccion"
                                     placeholder="Ingresa la direccion" v-model="Departamentos.direccion" />
                             </div>
 
                             <div class="form-group">
-                                <label for="estado" style="color: black;">Estado:</label>
+                                <label for="estado" style="color: white;">Estado:</label>
                                 <input type="text" class="form-control" name="estado" aria-describedby="helpId" id="estado"
                                     placeholder="Ingresa el estado" v-model="Departamentos.estado" />
                             </div>
 
                             <div class="form-group">
-                                <label for="fk_Cliente" style="color: black;">Fk_Cliente:</label>
+                                <label for="fk_Cliente" style="color: white;">Fk_Cliente:</label>
                                 <input type="text" class="form-control" name="fk_Cliente" aria-describedby="helpId" id="fk_Cliente"
                                     placeholder="Ingresa el cliente" v-model="Departamentos.fk_Cliente" />
                             </div>
