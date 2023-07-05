@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
-import ListarUsuario from '../components/ListarUsuario.vue'
-import CrearUsuario from '../components/CrearUsuario.vue'
 
 
 
@@ -35,11 +33,7 @@ const router = createRouter({
       name: 'Dashboard',
       component: () => import('../views/DashboardView.vue'),
       children: [
-        {
-          path: '/listar',
-          name: 'listar',
-          component: () =>import("../components/ListarUsuario.vue")
-        },
+        
         {
           path: '/listacliente',
           name:'listacliente',
@@ -66,14 +60,9 @@ const router = createRouter({
           component: () => import('../components/componentsP/ListarPuesto.vue')
         },
         {
-          path: '/listarol',
-          name:'listarol',
-          component: () => import('../components/componentsR/ListarRol.vue')
-        },
-        {
-          path: '/editar/:pkUsuario',
-          name: 'editar',
-          component: () => import('../components/ActualizarUsuario.vue')
+          path: '/listarEmpresas',
+          name:'listarEmpresas',
+          component: () => import('../components/componentsEm/ListarEmpresas.vue')
         },
         {
           path: '/editarcliente/:pkCliente',
@@ -105,16 +94,10 @@ const router = createRouter({
 
         },
         {
-          path: '/editarrol/:pkRol',
-          name: 'editarrol',
-          component: () => import('../components/componentsR/ActualizarRol.vue')
-
+          path: '/editarEmpresas/:pkEmpresa',
+          name: 'editarEmpresas',
+          component: () => import('../components/componentsEm/ActualizarEmpresas.vue')
         },
-        {
-          path: '/crear',
-          name: 'crear',
-          component: () => import('../components/CrearUsuario.vue')
-        }, 
         {
           path: '/crearcliente',
           name: 'crearcliente',
@@ -124,6 +107,12 @@ const router = createRouter({
           path: '/creardepartamento',
           name: 'creardepartamento',
           component: () => import('../components/componentsD/CrearDepartamento.vue')
+        },
+        {
+          path: '/crearEmpresas',
+          name: 'crearEmpresas',
+          component: () => import('../components/componentsEm/CrearEmpresas.vue') 
+
         },
         {
           path: '/crearempleado',
@@ -140,13 +129,7 @@ const router = createRouter({
           name: 'crearpuesto',
           component: () => import('../components/componentsP/CrearPuesto.vue')
         },
-        {
-          path: '/crearrol',
-          name: 'crearrol',
-          component: () => import('../components/componentsR/CrearRol.vue')
-        },
-
-        
+           
       ]
       
     } 

@@ -12,6 +12,9 @@
               <tr>
                 <th style="font-weight: bold;">Id</th>
                 <th style="font-weight: bold;">Nombre</th>
+                <th style="font-weight: bold;">Direccion</th>
+                <th style="font-weight: bold;">Estado</th>
+                <th style="font-weight: bold;">Fk_Cliente</th>
                 <th style="font-weight: bold;">Acciones</th>
               </tr>
             </thead>
@@ -19,6 +22,9 @@
               <tr v-for="dep in Departamentos" :key="dep.pkDepartamento">
                 <td style="color:black;">{{ dep.pkDepartamento }}</td>
                 <td>{{ dep.nombre }}</td>
+                <td>{{ dep.direccion }}</td>
+                <td>{{ dep.estado }}</td>
+                <td>{{ dep.fk_Cliente }}</td>
                 
                 <td>
                   <div class="btn-group" role="label" aria-label="">

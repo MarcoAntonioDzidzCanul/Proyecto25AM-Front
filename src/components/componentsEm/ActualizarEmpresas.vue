@@ -3,30 +3,30 @@
       <div class="card" style="background-color: gray;">
           <div class="card-header" style="background-color: gray; color: black;">Actualizar Empleado</div>
           <div class="card-body">
-              <form v-on:submit.prevent="editarEmp">
+              <form v-on:submit.prevent="editarEmpre">
                   <div class="form-group">
                       <label for="" style="color: black;">Nombre:</label>
                               <input type="text" class="form-control" name="nombre" aria-describedby="helpId"
                                   id="nombre" placeholder="nombre" v-model="form.nombre" />
                               
 
-                              <label for="" style="color: black;">Apellidos:</label>
-                              <input type="text" class="form-control" name="apellidos" aria-describedby="helpId"
-                                  id="apellidos" placeholder="apellidos" v-model="form.apellidos" />
-                              
-
                               <label for="" style="color: black;">Direccion:</label>
                               <input type="text" class="form-control" name="direccion" aria-describedby="helpId"
-                                  id="direccion" placeholder="direccion" v-model="form.dirreccion" />
+                                  id="direccion" placeholder="direccion" v-model="form.direccion" />
+                              
+
+                              <label for="" style="color: black;">FK_Departamento:</label>
+                              <input type="text" class="form-control" name="fk_Departamento" aria-describedby="helpId"
+                                  id="fk_Departamento" placeholder="fk_Departamento" v-model="form.fk_Departamento" />
                             
 
-                              <label for="" style="color: black;">Ciudad:</label>
-                              <input type="text" class="form-control" name="ciudad" aria-describedby="helpId"
-                                  id="ciudad" placeholder="ciudad" v-model="form.ciudad" />
+                              <label for="" style="color: black;">FK_Empleado:</label>
+                              <input type="text" class="form-control" name="fk_Empleado" aria-describedby="helpId"
+                                  id="fk_Empleado" placeholder="fk_Empleado" v-model="form.fk_Empleado " />
 
-                                  <label for="" style="color: black;">FKPuesto:</label>
-                              <input type="text" class="form-control" name="fkPuesto" aria-describedby="helpId"
-                                  id="fkPuesto" placeholder="fkPuesto" v-model="form.fkPuesto" />
+                                  <label for="" style="color: black;">FK_Factura:</label>
+                              <input type="text" class="form-control" name="fk_Factura" aria-describedby="helpId"
+                                  id="fk_Factura" placeholder="fk-Factura" v-model="form.fk_Factura" />
 
                            
 
@@ -55,7 +55,7 @@
 
                               <div class="btn-group" role="group">
                                   <button type="submit" class="btn btn-outline-primary">Guardar</button>
-                                  <router-link :to="{name: 'listaempleado'}" class="btn btn-outline-danger">Cancelar</router-link>
+                                  <router-link :to="{name: 'listarEmpresas'}" class="btn btn-outline-danger">Cancelar</router-link>
                               </div>
               </form>
 
@@ -68,21 +68,21 @@
 import axios from 'axios'
 
 export default {
-  name: 'editarempleado',
+  name: 'editarEmpresas',
   components: {
 
   },
 
   data: function() {
       return {
-        pkEmpleado: null,
+        pkEmpresa: null,
       form:{
-        pkEmpleado: "",
+        pkEmpresa: "",
         nombre:"",
-        apellidos:"",
-        dirreccion:"",
-        ciudad:"",
-        fkPuesto:""
+        direccion:"",
+        fk_Departamento:"",
+        fk_Empleado:"",
+        fk_Factura:""
       },
       // Puesto:{},
       // Departamento:{}
@@ -93,28 +93,29 @@ export default {
 //         this.consultarDepartamento();    
 //       },
   mounted:function(){
-    this.pkEmpleado = this.$route.params.pkEmpleado;
-    console.log(this.pkEmpleado);
-    axios.get("https://localhost:7051/Empleado/" + this.pkEmpleado).then(datos =>
+    this.pkEmpresa = this.$route.params.pkEmpresa;
+    console.log(this.pkEmpresa);
+    axios.get("https://localhost:7051/Empresa/" + this.pkEmpresa).then(datos =>
     {
       console.log(datos);
-      this.form.pkEmpleado = datos.data.result.pkEmpleado;
+      this.form.pkEmpresa = datos.data.result.pkEmpresa;
       this.form.nombre = datos.data.result.nombre;
-      this.form.apellidos = datos.data.result.apellidos;
-      this.form.dirreccion = datos.data.result.dirreccion;
-      this.form.ciudad = datos.data.result.ciudad;
-      this.form.fkPuesto = datos.data.result.fkPuesto;
+      this.form.direccion = datos.data.result.direccion;
+      this.form.fk_Departamento = datos.data.result.fk_Departamento;
+      this.form.fk_Empleado = datos.data.result.fk_Empleado;
+      this.form.fk_Factura = datos.data.result.fk_Factura;
       console.log(this.form);
+      
     })
   },
 
   methods:{
-      editarEmp()
+      editarEmpre()
       {
-          axios.put("https://localhost:7051/Empleado/" + this.pkEmpleado, this.form).then(data =>{
+          axios.put("https://localhost:7051/Empresa/" + this.pkEmpresa, this.form).then(data =>{
               console.log(data);
           });
-          this.$router.push("/listaempleado")
+          this.$router.push("/listarEmpresas")
       },
       // consultarDepartamento() {
       //        axios.get("https://localhost:7051/Departamento").then((result) => {

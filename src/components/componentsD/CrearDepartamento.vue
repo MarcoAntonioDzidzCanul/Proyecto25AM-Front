@@ -8,11 +8,29 @@
                         
   
                             <div class="form-group">
-                                <label for="user" style="color: black;">Nombre:</label>
+                                <label for="nombre" style="color: black;">Nombre:</label>
                                 <input type="text" class="form-control" name="nombre" aria-describedby="helpId" id="nombre"
                                     placeholder="Ingresa el nombre de departammento" v-model="Departamentos.nombre" />
-                                
                             </div>
+
+                            <div class="form-group">
+                                <label for="direccion" style="color: black;">Direccion:</label>
+                                <input type="text" class="form-control" name="direccion" aria-describedby="helpId" id="direccion"
+                                    placeholder="Ingresa la direccion" v-model="Departamentos.direccion" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="estado" style="color: black;">Estado:</label>
+                                <input type="text" class="form-control" name="estado" aria-describedby="helpId" id="estado"
+                                    placeholder="Ingresa el estado" v-model="Departamentos.estado" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fk_Cliente" style="color: black;">Fk_Cliente:</label>
+                                <input type="text" class="form-control" name="fk_Cliente" aria-describedby="helpId" id="fk_Cliente"
+                                    placeholder="Ingresa el cliente" v-model="Departamentos.fk_Cliente" />
+                            </div>
+
                         
   
                     </div>
@@ -58,7 +76,10 @@
         formulario() {
     
             var cuerpo = {
-                nombre: this.Departamentos.nombre
+                nombre: this.Departamentos.nombre,
+                direccion: this.Departamentos.direccion,
+                estado: this.Departamentos.estado,
+                fk_Cliente: this.Departamentos.fk_Cliente,
                 
             };
   

@@ -8,16 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
             <div class="logo_section">
               <i class='bx bxl-foursquare'></i>
               <h3>Dashboard</h3>
-            </div>
-            
-            <a href="#" class="sidenav_link ">
-              <i class='bx bx-folder'></i>
-              <h3>      
-              <div class="row">
-              <router-link :to="{ path: '/listar' }" type="button" class="navbar-brand">Usuario</router-link>
-              </div>
-              </h3>
-            </a>
+            </div>                   
             
             <a href="#" class="sidenav_link">
               <i class='bx bx-briefcase'></i>
@@ -46,6 +37,15 @@ import { RouterLink, RouterView } from 'vue-router'
               </div>
               </h3>
               </a>
+
+              <a href="#" class="sidenav_link">
+              <i class='bx bx-calendar'></i>
+              <h3>      
+              <div class="row">
+              <router-link :to="{ path: '/listarEmpresas' }" type="button" class="navbar-brand">Empresas</router-link>
+              </div>
+              </h3>
+              </a>
               
               <a href="#" class="sidenav_link ">
               <i class='bx bx-folder'></i>
@@ -65,22 +65,7 @@ import { RouterLink, RouterView } from 'vue-router'
               </h3>
               </a>
 
-              <a href="#" class="sidenav_link">
-              <i class='bx bx-calendar'></i>
-              <h3>      
-              <div class="row">
-              <router-link :to="{ path: '/listaroL' }" type="button" class="navbar-brand">Rol</router-link>
-              </div>
-              </h3>
-              </a>
-
-
-          <div class="sidenav_footer">
-            <a href="#" class="sidenav_link">
-              <i class='bx bx-rocket'></i>
-              <h3>Administración</h3>
-            </a>
-          </div>
+      
           
             <button id="nav_collapse_btn">
               <i class='bx bxs-chevrons-left'></i>

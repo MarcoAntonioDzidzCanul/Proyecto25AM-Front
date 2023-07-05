@@ -38,11 +38,6 @@
                                     placeholder="email" v-model="Clientes.email" />
                             </div>
 
-                            <div class="form-group">
-                                <label for="dirreccion" style="color: black;">Direccion:</label>
-                                <input type="text" class="form-control" name="direccion" id="direccion" aria-describedby="helpId"
-                                    placeholder="direccion" v-model="Clientes.direccion" />
-                            </div>
                         
                     
                     <br>
@@ -85,8 +80,7 @@
                 nombre: this.Clientes.nombre,
                 apellidos: this.Clientes.apellidos,
                 telefono: this.Clientes.telefono,
-                email: this.Clientes.email,
-                direccion: this.Clientes.direccion
+                email: this.Clientes.email
             };
   
             axios.post('https://localhost:7051/Cliente', cuerpo1).then((result) => {

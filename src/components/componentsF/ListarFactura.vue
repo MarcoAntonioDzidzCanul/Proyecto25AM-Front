@@ -13,8 +13,6 @@
                 <th style="font-weight: bold;">Id</th>
                 <th style="font-weight: bold;">Razon Social</th>
                 <th style="font-weight: bold;">Fecha</th>
-                <th style="font-weight: bold;">rfc</th>
-                <th style="font-weight: bold;">FkCliente</th>
                 <th style="font-weight: bold;">Acciones</th>
               </tr>
             </thead>
@@ -23,8 +21,6 @@
                 <td style="color:black;">{{ fac.pkFactura}}</td>
                 <td>{{ fac.razonSocial }}</td>
                 <td>{{ fac.fecha }}</td>
-                <td>{{ fac.rfc }}</td>
-                <td>{{ fac.cliente.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
@@ -73,7 +69,7 @@
     },
     methods: {
       ListaFactura() {
-        axios.get("https://localhost:7051/Factura/multi").then((result) => {
+        axios.get("https://localhost:7051/Factura").then((result) => {
           console.log(result.data);
           this.Facturas = result.data.result;
   

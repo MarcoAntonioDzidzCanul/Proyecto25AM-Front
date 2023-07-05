@@ -15,7 +15,6 @@
                 <th style="font-weight: bold;">Apellidos</th>
                 <th style="font-weight: bold;">Telefono</th>
                 <th style="font-weight: bold;">Email</th>
-                <th style="font-weight: bold;">Direccion</th>
                 <th style="font-weight: bold;">Acciones</th>
               </tr>
             </thead>
@@ -26,7 +25,6 @@
                 <td>{{ cliente.apellidos }}</td>
                 <td>{{ cliente.telefono }}</td>
                 <td>{{ cliente.email }}</td>
-                <td>{{ cliente.direccion }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
@@ -76,7 +74,7 @@
     },
     methods: {
       ListaCliente() {
-        axios.get("https://localhost:7051/Cliente/").then((result) => {
+        axios.get("https://localhost:7051/Cliente").then((result) => {
           console.log(result.data);
           this.Clientes = result.data.result;
   

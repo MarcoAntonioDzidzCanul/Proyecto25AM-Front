@@ -13,7 +13,7 @@
                               
                               
 
-                              <label for="" style="color: black;">RFC:</label>
+                              <!-- <label for="" style="color: black;">RFC:</label>
                               <input type="text" class="form-control" name="rfc" aria-describedby="helpId"
                                   id="rfc" placeholder="rfc" v-model="form.rfc" />
 
@@ -23,7 +23,7 @@
                                <select class="form-select" aria-label="Default select example" name="cliente" id="cliente" v-model="form.fkCliente">
                                <option v-for="cliente in Cliente" :value="cliente.pkCliente" :key="cliente.pkCliente">{{cliente.nombre}}</option>
                                </select>
-                               </div>
+                               </div> -->
 
                               
                               </div><br/>
@@ -56,18 +56,18 @@ export default {
               pkFactura: "",
               razonSocial : "",
               fecha : "",
-              rfc : "",
-              fkCliente : ""
+            //   rfc : "",
+            //   fkCliente : ""
               
           },
-          Cliente:{}
+        //   Cliente:{}
           
           
       }
   },
-  created: function () {
-        this.consultarCliente();    
-      },
+//   created: function () {
+//         this.consultarCliente();    
+//       },
   mounted : function(){
       this.pkFactura = this.$route.params.pkFactura;
       console.log(this.pkFactura);
@@ -76,8 +76,8 @@ export default {
           this.form.pkFactura = datos.data.result.pkFactura;
           this.form.razonSocial = datos.data.result.razonSocial;
           this.form.fecha = datos.data.result.fecha;
-          this.form.rfc = datos.data.result.rfc;
-          this.form.fkCliente = datos.data.result.fkCliente;
+        //   this.form.rfc = datos.data.result.rfc;
+        //   this.form.fkCliente = datos.data.result.fkCliente;
           console.log(this.form)
       });
 
@@ -90,13 +90,13 @@ export default {
           });
           this.$router.push("/listafactura")
       },
-      consultarCliente() {
-             axios.get("https://localhost:7051/Cliente").then((result) => {
-               console.log(result.data.result);
-               this.Cliente = result.data.result;
-            });
+    //   consultarCliente() {
+    //          axios.get("https://localhost:7051/Cliente").then((result) => {
+    //            console.log(result.data.result);
+    //            this.Cliente = result.data.result;
+    //         });
               
-        },
+    //     },
       
   },
  

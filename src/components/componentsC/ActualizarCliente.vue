@@ -25,9 +25,6 @@
                                   id="email" placeholder="" v-model="form.email" />
                            
 
-                              <label for="direccion" style="color: black;">Direccion:</label>
-                              <input type="text" class="form-control" name="direccion" aria-describedby="helpId"
-                                  id="direccion" placeholder="" v-model="form.direccion" />
                              
 
 
@@ -63,8 +60,7 @@ export default {
               nombre: "",
               apellidos: "",
               telefono: "",
-              email: "",
-              direccion: ""
+              email: ""
           },
           
           
@@ -80,7 +76,6 @@ export default {
           this.form.apellidos = datos.data.result.apellidos;
           this.form.telefono = datos.data.result.telefono;
           this.form.email = datos.data.result.email;
-          this.form.direccion = datos.data.result.direccion;
           console.log(this.form)
       });
 

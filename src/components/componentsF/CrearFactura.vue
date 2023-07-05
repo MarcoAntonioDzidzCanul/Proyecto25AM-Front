@@ -10,22 +10,29 @@
                             <div class="form-group">
                                 <label for="razonsocial">Razon Social:</label>
                                 <input type="text" class="form-control" name="razonsocial" aria-describedby="helpId"
-                                    id="razonsocial" placeholder="Escriba su Usuario" v-model="Facturas.razonsocial" />
+                                    id="razonsocial" placeholder="Escriba su razon social" v-model="Facturas.razonSocial" />
                             </div>
                         </div>                     
 
                     </div>
                     <br>
-                    <div class="row">
+                    <!-- <div class="row">
                         
                             <div class="form-group">
-                                <label for="rfc">RFC:</label>
-                                <input type="text" class="form-control" name="rfc" id="rfc" aria-describedby="helpId"
-                                    placeholder="Escriba su rfc" v-model="Facturas.rfc" />
+                                <label for="fecha">Fecha:</label>
+                                <input type="text" class="form-control" name="fecha" id="fecha" aria-describedby="helpId"
+                                    placeholder="Escriba la fecha" v-model="Facturas.fecha" />
                             </div>
-                    </div>
-                        <br>
-                       
+                    </div> -->
+
+                    <!-- <div class="row">
+                        <div class="form-group">
+                            <label for="status">Status:</label>
+                            <input type="text" class="form-control" name="status" id="status" aria-describedby="helpId"
+                                placeholder="Escriba el status" v-model="Facturas.status" />
+                        </div>
+                    </div> -->
+                      <!-- <br>
                             <input type="number" name="fkCliente" id="fkCliente" value="" style="display: none;" />
                             <label for="">Clientes:</label>
                             <select class="form-select" aria-label="Default select example" v-model="nombrecliente"
@@ -35,7 +42,7 @@
                         
 
                     
-                    <br>
+                    <br> -->
                     <div class="row">
                         <div class="btn-group" role="group" id="botonesopcion">
                             <button type="submit" class="btn btn-outline-primary">Agregar</button>
@@ -69,25 +76,23 @@ export default {
         return {
             Facturas: {},
             smg: "",
-            nombrecliente: "",
-            Clientes: [],
-            Fecha:"",
-            registroCli: [],
+            // nombrecliente: "",
+            // Clientes: [],
+            fecha:""
+            // registroCli: [],
         };
     },
-    created: function () {
-        this.cargarClientes();
-    },
+    // created: function () {
+    //     this.cargarClientes();
+    // },
     methods: {
         formulario() {
 
             const tiempoTranscurrido = Date.now();
             const hoy = new Date(tiempoTranscurrido);
             var cuerpo = {
-                razonsocial: this.Facturas.razonsocial,
+                razonSocial: this.Facturas.razonSocial,
                 fecha: hoy.toISOString(),
-                rfc: this.Facturas.rfc,
-                fkCliente: document.getElementById('fkCliente').value,
             };
 
             axios.post('https://localhost:7051/Factura', cuerpo).then((result) => {
@@ -105,19 +110,19 @@ export default {
 
             console.log(cuerpo)
         },
-        cargarClientes() {
-            axios.get('https://localhost:7051/Cliente').then((response => {
-                this.Clientes = response.data.result;
-                console.log(response.data.result);
-            }))
-        },
-        convertidorcli() {
-            axios.get('https://localhost:7051/Cliente/BuscarPorNombre?nombr=' + this.nombrecliente).then((response) => {
-                this.registroCli = response.data.result;
+        // cargarClientes() {
+        //     axios.get('https://localhost:7051/Cliente').then((response => {
+        //         this.Clientes = response.data.result;
+        //         console.log(response.data.result);
+        //     }))
+        // },
+        // convertidorcli() {
+        //     axios.get('https://localhost:7051/Cliente/BuscarPorNombre?nombr=' + this.nombrecliente).then((response) => {
+        //         this.registroCli = response.data.result;
 
-                document.getElementById('fkCliente').value = this.registroCli[0].pkCliente;
-            })
-        }
+        //         document.getElementById('fkCliente').value = this.registroCli[0].pkCliente;
+        //     })
+        // }
     }
 }
 </script>

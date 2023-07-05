@@ -1,8 +1,8 @@
 <template>
     <div>
-      <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Empleado</button> 
+      <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Empresas</button> 
       <div class="card">
-        <div class="card-header" style="background-color: gray;"><strong style="color:black;">Lista de Empleados</strong></div>
+        <div class="card-header" style="background-color: gray;"><strong style="color:black;">Lista de Empresas</strong></div>
   
         <div class="card_body" style="background-color: gray;">
           <!-- <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-warning">Editar</button> -->
@@ -12,26 +12,27 @@
               <tr>
                 <th style="font-weight: bold;">Id</th>
                 <th style="font-weight: bold;">Nombre</th>
-                <th style="font-weight: bold;">Apellidos</th>
                 <th style="font-weight: bold;">Direccion</th>
-                <th style="font-weight: bold;">Ciudad</th>
-                <th style="font-weight: bold;">FK_Puesto</th>
+                <th style="font-weight: bold;">fk_Departamento</th>
+                <th style="font-weight: bold;">fk_Empleado</th>
+                <th style="font-weight: bold;">fk_Factura</th>
                 <th style="font-weight: bold;">Acciones</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="emp in Empleados" :key="emp.pkEmpleado">
-                <td style="color:black;">{{ emp.pkEmpleado }}</td>
-                <td>{{ emp.nombre }}</td>
-                <td>{{ emp.apellidos }}</td>
-                <td>{{ emp.dirreccion }}</td>
-                <td>{{ emp.ciudad }}</td>
-                <td>{{ emp.fkPuesto}}</td>
+              <tr v-for="Empre in Empresas" :key="Empre.pkEmpresa">
+                <td style="color:black;">{{ Empre.pkEmpresa }}</td>
+                <td>{{ Empre.nombre }}</td>
+                <td>{{ Empre.direccion }}</td>
+                <td>{{ Empre.fk_Departamento }}</td>
+                <td>{{ Empre.fk_Empleado }}</td>
+                <td>{{ Empre.fk_Factura }}</td>
+                
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                    <button type="button" v-on:click="eliminar(emp.pkEmpleado)" class="btn btn-outline-danger">Eliminar</button>
-                    <button type="button" v-on:click="  editar(emp.pkEmpleado)" class="btn btn-outline-warning">Editar</button> 
+                    <button type="button" v-on:click="eliminar(Empre.pkEmpresa)" class="btn btn-outline-danger">Eliminar</button>
+                    <button type="button" v-on:click="  editar(Empre.pkEmpresa)" class="btn btn-outline-warning">Editar</button> 
                     <!-- <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button>  -->
                       
                     
@@ -50,7 +51,6 @@
       </div>
     </div>
     
-
   </template>
   
   <script>
@@ -58,7 +58,7 @@
   
   
   export default {
-  name: 'listaempleado',
+    name: 'listaEmpresas',
     components:{
   
     },
@@ -66,47 +66,46 @@
       
       return {
        
-        Empleados: [],
-        Puesto: [],
-        Departamento: [],
+        Empresas: [],
+        Departamentos: [],
+        Empleado: [],
+        Factura: [],
         smg: "",
       };
     },
     created: function () {
-      this.ListaEmpleados();
+      this.listaEmpresas();
     },
     methods: {
-      ListaEmpleados() {
-        axios.get("https://localhost:7051/Empleado").then((result) => {
+      listaEmpresas() {
+        axios.get("https://localhost:7051/Empresa").then((result) => {
           console.log(result.data);
-          this.Empleados = result.data.result;
-  
+          this.Empresas = result.data.result;
   
          });
   
-  
       },
-      
+  
       eliminar(id) {
         var pregunta=window.confirm('¿Desea eliminar el registro?');
   
         if(pregunta===true){
-          axios.delete("https://localhost:7051/Empleado?id=" + id);
-          window.location.href = "/listaempleado";
+          axios.delete("https://localhost:7051/Empresa?id=" + id);
+          window.location.href = "/listarEmpresas";
         }
           
         
   
       },
-      editar(pkEmpleado) {
-        console.log(pkEmpleado);
-      this.$router.push("/editarempleado/"+ pkEmpleado)
+      editar(pkEmpresa) {
+        console.log(pkEmpresa);
+      this.$router.push("/editarEmpresas/"+ pkEmpresa)
   
       
   
       },
       crear(){
-        window.location.href="/crearempleado";
+        window.location.href="/crearEmpresas";
       }
     },
   

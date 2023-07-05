@@ -1,50 +1,49 @@
 <template>
     <div class="container-fluid">
         <div class="card" style="background-color: gray;">
-          <div class="card-header" style="background-color: gray; color: black;">Crear Empleado</div>
+          <div class="card-header" style="background-color: gray; color: black;">Crear Empresas</div>
             <div class="card-body">
                 <form v-on:submit.prevent="formulario">
                     <div class="row">
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" name="nombre" aria-describedby="helpId" id="nombre"
-                                    placeholder="nombre" v-model="Empleados.nombre" />
+                                    placeholder="nombre" v-model="Empresas.nombre" />
                             </div>
                             </div>
                         
                             <div class="row">
                             <div class="form-group">
-                                <label for="apellidos">Apellidos:</label>
-                                <input type="text" class="form-control" name="apellidos" id="apellidos"
-                                    aria-describedby="helpId" placeholder="apellidos" v-model="Empleados.apellidos" />
+                                <label for="direccion">Direccion:</label>
+                                <input type="text" class="form-control" name="direccion" id="direccion"
+                                    aria-describedby="helpId" placeholder="direccion" v-model="Empresas.dirreccion" />
                             </div>
-                            </div>
-                        
-                            <div class="row">
-                            <div class="form-group">
-                                <label for="dirreccion">Direccion:</label>
-                                <input type="text" class="form-control" name="dirreccion" id="dirreccion"
-                                    aria-describedby="helpId" placeholder="direccion" v-model="Empleados.dirreccion" />
-                            </div>
-                            </div>
+                            </div>                                       
 
 
                        <div class="row">
                             <div class="form-group">
-                                <label for="ciudad">Ciudad:</label>
-                                <input type="text" class="form-control" name="ciudad" id="ciudad"
-                                    aria-describedby="helpId" placeholder="ciudad" v-model="Empleados.ciudad" />
+                                <label for="fk_Departamento">fk_Departamento:</label>
+                                <input type="text" class="form-control" name="fk_Departamento" id="ciudad"
+                                    aria-describedby="helpId" placeholder="fk_Departamento" v-model="Empresas.fk_Departamento" />
                             </div>
 
                             <div class="row">
                             <div class="form-group">
-                                <label for="fkPuesto">fkPuesto:</label>
-                                <input type="text" class="form-control" name="fkPuesto" id="fkPuesto"
-                                    aria-describedby="helpId" placeholder="fkPuesto" v-model="Empleados.fkPuesto" />
+                                <label for="fk_Empleado">fk_Empleado:</label>
+                                <input type="text" class="form-control" name="fk_Empleado" id="fk_Empleado"
+                                    aria-describedby="helpId" placeholder="fkPuesto" v-model="Empresas.fk_Empleado" />
                             </div>
                             </div>
 
-                        
+                            <div class="row">
+                            <div class="form-group">
+                                <label for="fk_Factura">FK_Factura:</label>
+                                <input type="text" class="form-control" name="fk_Factura" id="fk_Factura"
+                                    aria-describedby="helpId" placeholder="fk_Factura" v-model="Empresas.fk_Factura" />
+                            </div>
+                            </div>
+
                             
                         
 
@@ -71,9 +70,9 @@
                     <div class="row">
                         <div class="btn-group" depae="group" id="botonesopcion">
                             <button type="submit" class="btn btn-outline-primary">Agregar</button>
-                            <router-link :to="{ name: 'listaempleado' }" class="btn btn-outline-danger">Cancelar</router-link>
+                            <router-link :to="{ name: 'listarEmpresas' }" class="btn btn-outline-danger">Cancelar</router-link>
                         </div>
-                        <router-link :to="{ name: 'listaempleado' }" class="btn btn-outline-primary" id="finaliza"
+                        <router-link :to="{ name: 'listarEmpresas' }" class="btn btn-outline-primary" id="finaliza"
                             style="display: none;">Finalizar</router-link>
                     </div>
                     <br>
@@ -91,14 +90,14 @@
 <script>
 import axios from 'axios';
 export default {
-    name: "crearempleado",
+    name: "crearEmpresas",
     components: {
 
     },
 
     data() {
         return {
-            Empleados: {},
+            Empresas: {},
             smg: "",
             // Puestos: {}
             // // Departamentos: {},
@@ -116,11 +115,11 @@ export default {
         formulario() {
         
             var cuerpo = {
-                nombre: this.Empleados.nombre,
-                apellidos: this.Empleados.apellidos,
-                dirreccion: this.Empleados.dirreccion,
-                ciudad: this.Empleados.ciudad,
-                fkPuesto: this.Empleados.fkPuesto,
+                nombre: this.Empresas.nombre,
+                dirreccion: this.Empresas.dirreccion,
+                fk_Departamento: this.Empresas.fk_Departamento,
+                fk_Empleado: this.Empresas.fk_Empleado,
+                fk_Factura: this.Empresas.fk_Factura,
             }
 
             console.log(cuerpo)
@@ -128,7 +127,7 @@ export default {
 
 
 
-            axios.post('https://localhost:7051/Empleado', cuerpo).then((result) => {
+            axios.post('https://localhost:7051/Empresa', cuerpo).then((result) => {
 
                 if (result.status == 200) {
                     document.getElementById("alert").style.display = "block";

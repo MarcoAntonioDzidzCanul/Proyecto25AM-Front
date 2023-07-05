@@ -42,7 +42,7 @@
   <script>
   import axios from 'axios';
   export default {
-    name: "crearUser",
+    name: "crearPuesto",
     components: {
   
     },

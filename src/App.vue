@@ -6,17 +6,17 @@ import Login from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
     <div class="wrapper">
       <!-- <HelloWorld msg="You did it!" /> -->
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <!-- <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/Login">Login</RouterLink>
         <RouterLink to="/AboutView">AboutView</RouterLink>
         <RouterLink to="/listar">Listar</RouterLink>
-        <RouterLink to="/crear">Crear</RouterLink>
+        <RouterLink to="/crear">Crear</RouterLink> -->
 
       </nav>
     </div>
