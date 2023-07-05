@@ -2,7 +2,7 @@
     <div>
       <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Puesto</button> 
       <div class="card">
-        <div class="card-header" style="background-color: #2E8B57;"><strong style="color:white;">Lista de puestos</strong></div>
+        <div class="card-header" style="background-color: #2E8B57;"><strong style="color:white;">Lista de Puestos</strong></div>
   
         <div class="card_body" style="background-color: #2E8B57;">
           <!-- <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-warning">Editar</button> -->

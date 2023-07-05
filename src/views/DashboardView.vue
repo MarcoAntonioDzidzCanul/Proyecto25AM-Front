@@ -3,51 +3,45 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 <template>
   <div id="body">
-      <div id="menuxc">
-          <section id="menu">
-              <div id="logo">
-                  <img id="icon"
-                      src="https://media.istockphoto.com/id/1125625274/es/vector/la-letra-elegante-creativa-moderna-%C3%BAnica-d-basado-en-plantilla-de-logotipo-de-icono-de-vector.jpg?s=612x612&w=0&k=20&c=jWpj2H6PO5yjF8xLZZ69MVvY9tbg8xyWHWCyFIJpmZU=">
-                  <h2>Inicio</h2>
+    <div id="menuxc">
+      <section id="menu">
+        <div id="logo">
+          <img id="icon"
+            src="https://media.istockphoto.com/id/1125625274/es/vector/la-letra-elegante-creativa-moderna-%C3%BAnica-d-basado-en-plantilla-de-logotipo-de-icono-de-vector.jpg?s=612x612&w=0&k=20&c=jWpj2H6PO5yjF8xLZZ69MVvY9tbg8xyWHWCyFIJpmZU=">
+          <h2>Inicio</h2>
+        </div>
+        <div id="items">
+
+          <li class="item" v-for="(item, index) in items" :key="index" :class="{ active: activeIndex === index }"
+            @click="setActive(index)">
+            <RouterLink :to="getLink(index)">
+              <div><i class="fa-solid fa-bars"></i>
+                {{ item }}
               </div>
-              <div id="items">
-                  
-                  <li>
-                      <RouterLink :to="{ path: '/listacliente' }"><i class="fa-solid fa-bars"></i> Cliente</RouterLink>
-                  </li>
-                  
-                  <li>
-                      <RouterLink :to="{ path: '/listadepartamento' }"><i class="fa-solid fa-bars"></i> Departamento</RouterLink>
-                  </li>
-                  <li>
-                      <RouterLink :to="{ path: '/listaempleado' }"><i class="fa-solid fa-bars"></i> Empleados</RouterLink>
-                  </li>
-                  <li>
-                      <RouterLink :to="{ path: '/listarEmpresas' }"><i class="fa-solid fa-bars"></i> Empresas</RouterLink>
-                  </li>
-                  <li>
-                      <RouterLink :to="{ path: '/listafactura' }"><i class="fa-solid fa-bars"></i> Factura</RouterLink>
-                  </li>
-                  <li>
-                      <RouterLink :to="{ path: '/listapuesto' }"><i class="fa-solid fa-bars"></i> Puesto</RouterLink>
-                  </li>
-                  <li>
-                      <RouterLink to="/"><i class="fa-solid fa-bars"></i> Salir</RouterLink>
-                  </li>
+            </RouterLink>
+          </li>
+
+          <li>
+            <RouterLink :to="{ path: '/' }">
+              <div><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Salir
               </div>
-              
-          </section>
-          
-      </div>
-      <main>
-        <header>
-          <!-- <div class="row">
+            </RouterLink>
+          </li>
+        </div>
+
+      </section>
+
+    </div>
+    <main>
+      <header>
+        <!-- <div class="row">
             <router-link :to="{ path: '/listar' }" type="button" class="btn btn-outline-secondary">Listar</router-link>
           </div> -->
-          <RouterView></RouterView>
-         
-          </header>
-      </main>
+        <RouterView></RouterView>
+
+      </header>
+    </main>
   </div>
 </template>
 
@@ -59,42 +53,49 @@ import { RouterLink, RouterView } from 'vue-router'
 #menuxc {
   background: #E5E7EB;
   position: relative;
-  width: 100vw; /* Ancho igual al 100% del viewport (ventana del navegador) */
-  height: 100vh; /* Altura igual al 100% del viewport */
+  width: 100vw;
+  /* Ancho igual al 100% del viewport (ventana del navegador) */
+  height: 100vh;
+  /* Altura igual al 100% del viewport */
 }
-#body{
-/* height: 100vh;
-width: 100vw;  */
-display: grid;
-grid-template-columns: 260px 1fr;
-font-family: 'Lato', sans-serif;
-box-sizing: border-box;
-/* background-color: var(--accent-dark); */
-/* Ancho igual al 100% del viewport (ventana del navegador) */
-/* Altura igual al 100% del viewport */
-width: 100vw; /* Ancho igual al 100% del viewport (ventana del navegador) */
-height: 100vh; /* Altura igual al 100% del viewport */
-margin: 0;
-padding: 0;
 
-background: #E5E7EB;
-position: relative;
+#body {
+  /* height: 100vh;
+width: 100vw;  */
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+  /* background-color: var(--accent-dark); */
+  /* Ancho igual al 100% del viewport (ventana del navegador) */
+  /* Altura igual al 100% del viewport */
+  width: 100vw;
+  /* Ancho igual al 100% del viewport (ventana del navegador) */
+  height: 100vh;
+  /* Altura igual al 100% del viewport */
+  margin: 0;
+  padding: 0;
+
+  background: #E5E7EB;
+  position: relative;
 }
-#menu{
- 
+
+#menu {
+
   background: #111827;
   width: 250px;
-  height:100%;
-  
+  height: 100%;
+
 }
 
-#logo{
+#logo {
   display: flex;
   align-items: center;
-  color:#fff;
+  color: #fff;
   padding: 30px 0 0;
 }
-#logo img{
+
+#logo img {
   width: 40px;
   margin-right: 15px;
   margin-left: 10px;
@@ -102,71 +103,90 @@ position: relative;
 
 }
 
-#items li{
+#items li {
   list-style: none;
   padding: 19px 0;
   transition: 0.3s ease;
 }
 
-#items li:hover{
+#items li:hover {
   background: #253047;
   cursor: pointer;
 }
 
-#items li:nth-child(1){
+#items li.active {
   border-left: 4px solid #fff;
 }
 
-#items li i{
-  color :rgb(134, 141, 151);
+#items li i {
+  color: rgb(134, 141, 151);
   width: 30px;
   height: 30px;
   line-height: 30px;
   text-align: center;
   font-size: 14px;
-  margin:0 10px 0 25px;
+  margin: 0 10px 0 25px;
 }
 
 #items li:hover i,
-#items li:hover a
-{
+#items li:hover a {
   color: #F3F4F6;
 }
 
-#items li i a{
+#items li i a {
   text-decoration: none;
-  color:rgb(134, 141, 151);
+  color: rgb(134, 141, 151);
   font-weight: 300px;
   transition: 0.3s ease;
 }
-
-
-
-
 </style>  
 
 <script>
 export default {
-    name: 'dashboard',
-    components: {
+  name: 'dashboard',
+  components: {
 
-    },
-    data() {
-        return {
-            ver: true
-        }
-    },
-    methods: {
-        AbrirDashUsuario() {
-            window.location.href = "/listar";
-        }
-        // AbrirDashCliente() {
-        //     window.location.href = "/getcliente";
-        // },
-        // AbrirDashDepa(){
-        //     window.location.href = "/getdepa";
-        // }
+  },
+  data() {
+    return {
+      ver: true,
+      items: ['Cliente', 'Departamento', 'Empleado', 'Empresas', 'Factura', 'Puesto'],
+      activeIndex: null
     }
+  },
+
+  methods: {
+    AbrirDashUsuario() {
+      window.location.href = "/listar";
+    },
+    setActive(index) {
+      this.activeIndex = index;
+    },
+    getLink(index) {
+      const routes = ['/listacliente', '/listadepartamento', '/listaempleado', '/listarEmpresas', '/listafactura', '/listapuesto']; // Arreglo de rutas predefinidas
+      return routes[index];
+    }
+
+  },
+  computed: {
+    activeItemClass() {
+      return {
+        active: this.activeIndex !== null
+      };
+    }
+
+
+
+
+    // AbrirDashCliente() {
+    //     window.location.href = "/getcliente";
+    // },
+    // AbrirDashDepa(){
+    //     window.location.href = "/getdepa";
+    // }
+
+  }
+
 }
 
 </script>

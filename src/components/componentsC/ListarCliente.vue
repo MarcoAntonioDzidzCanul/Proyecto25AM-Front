@@ -32,8 +32,8 @@
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                    <button type="button" v-on:click="eliminar(cliente.pkCliente)" class="btn btn-outline-danger">Eliminar</button>
-                    <button type="button" v-on:click="  editar(cliente.pkCliente)" class="btn btn-outline-warning">Editar</button>
+                    <button type="button" v-on:click="eliminar(cliente.pkCliente)" class="btn btn-outline-danger">Eliminar <i class="fa-solid fa-trash"></i></button>
+                    <button type="button" v-on:click="  editar(cliente.pkCliente)" class="btn btn-outline-warning">Editar <i class="fa-solid fa-pen-to-square"></i></button>
                     
                     <!-- <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button>  -->
                       
