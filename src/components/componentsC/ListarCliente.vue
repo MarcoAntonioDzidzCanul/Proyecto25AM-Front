@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="button" v-on:click="crear()" class="btn btn-dark">Crear Cliente</button> 
+    <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Cliente <i class="fa-solid fa-plus"></i></button> 
   </div>
     <div>
       

@@ -23,7 +23,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
           <li>
             <RouterLink :to="{ path: '/' }">
-              <div><i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <div><i class="fa-solid fa-arrow-right-from-bracket animate-icon"></i>
                 Salir
               </div>
             </RouterLink>
@@ -52,7 +52,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <style>
 #menuxc {
   background: #E5E7EB;
-  position: relative;
+  /* position: relative; */
   width: 100vw;
   /* Ancho igual al 100% del viewport (ventana del navegador) */
   height: 100vh;
@@ -138,6 +138,21 @@ width: 100vw;  */
   color: rgb(134, 141, 151);
   font-weight: 300px;
   transition: 0.3s ease;
+}
+@keyframes beat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-icon:hover {
+  animation: beat 0.5s infinite;
 }
 </style>  
 

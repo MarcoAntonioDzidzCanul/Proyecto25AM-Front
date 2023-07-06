@@ -23,6 +23,11 @@
           </div>
  
 </template>
+<style>
+  .card-body {
+      margin: 2em;
+  }
+  </style>
 <script>
 import axios from 'axios'
 

@@ -8,18 +8,22 @@
                       <label for="nombre" style="color: white;">Nombre:</label>
                               <input type="text" class="form-control" name="nombre" aria-describedby="helpId"
                                   id="nombre" placeholder="Escriba el nombre" v-model="form.nombre" />
+                                  <br>
 
                                   <label for="direccion" style="color: white;">Direccion:</label>
                               <input type="text" class="form-control" name="direccion" aria-describedby="helpId"
                                   id="direccion" placeholder="Escriba la direccion" v-model="form.direccion" />
+                                  <br>
 
                                   <label for="estado" style="color: white;">Estado:</label>
                               <input type="text" class="form-control" name="estado" aria-describedby="helpId"
                                   id="estado" placeholder="Escriba el estado" v-model="form.estado" />
+                                  <br>
 
                                   <label for="fk_Cliente" style="color: white;">fk_Cliente:</label>
                               <input type="text" class="form-control" name="fk_Cliente" aria-describedby="helpId"
                                   id="fk_Cliente" placeholder="Escriba el cliente" v-model="form.fk_Cliente" />
+                                  <br>
 
                               
 
@@ -37,6 +41,11 @@
           </div>
  
 </template>
+<style>
+.card-body {
+    margin: 2em;
+}
+</style>
 <script>
 import axios from 'axios'
 

@@ -11,6 +11,8 @@
                                     placeholder="nombre" v-model="Empleados.nombre" />
                             </div>
                             </div>
+                            <br>
+
                         
                             <div class="row">
                             <div class="form-group">
@@ -19,6 +21,8 @@
                                     aria-describedby="helpId" placeholder="apellidos" v-model="Empleados.apellidos" />
                             </div>
                             </div>
+                            <br>
+
                         
                             <div class="row">
                             <div class="form-group">
@@ -27,6 +31,7 @@
                                     aria-describedby="helpId" placeholder="direccion" v-model="Empleados.dirreccion" />
                             </div>
                             </div>
+                            <br>
 
 
                        <div class="row">
@@ -35,6 +40,10 @@
                                 <input type="text" class="form-control" name="ciudad" id="ciudad"
                                     aria-describedby="helpId" placeholder="ciudad" v-model="Empleados.ciudad" />
                             </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
 
                             <div class="row">
                             <div class="form-group">
@@ -43,6 +52,12 @@
                                     aria-describedby="helpId" placeholder="fkPuesto" v-model="Empleados.fkPuesto" />
                             </div>
                             </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+
 
                         
                             
@@ -87,7 +102,11 @@
         </div>
     </div>
 </template>
-  
+<style>
+  .card-body {
+      margin: 2em;
+  }
+  </style>  
 <script>
 import axios from 'axios';
 export default {
@@ -184,8 +203,8 @@ export default {
  
 </script>
 
-<style scoped>
+<!-- <style scoped>
 label {
     font-weight: bold;
 }
-</style>
+</style> -->

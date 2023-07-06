@@ -63,7 +63,11 @@
         </div>
     </div>
 </template>
-  
+<style>
+  .card-body {
+      margin: 2em;
+  }
+  </style>  
 <script>
 import axios from 'axios';
 export default {
@@ -128,9 +132,9 @@ export default {
 </script>
 
 <style scoped>
-label {
+/* label {
     font-weight: bold;
-}
+} */
 
 .date{
     border-radius: 20px;

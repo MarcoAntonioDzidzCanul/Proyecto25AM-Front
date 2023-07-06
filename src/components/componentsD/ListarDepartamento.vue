@@ -1,6 +1,6 @@
 <template>
     <div>
-      <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Departamento</button> 
+      <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Departamento <i class="fa-solid fa-plus"></i></button> 
       <div class="card">
         <div class="card-header" style="background-color: #2E8B57;"><strong style="color:white;">Lista de Departamentos</strong></div>
   
@@ -14,7 +14,7 @@
                 <th style="font-weight: bold;">Nombre</th>
                 <th style="font-weight: bold;">Direccion</th>
                 <th style="font-weight: bold;">Estado</th>
-                <th style="font-weight: bold;">Fk_Cliente</th>
+                <th style="font-weight: bold;">Cliente</th>
                 <th style="font-weight: bold;">Acciones</th>
               </tr>
             </thead>
@@ -28,9 +28,9 @@
                 
                 <td>
                   <div class="btn-group" role="label" aria-label="">
-                    <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                    <button type="button" v-on:click="eliminar(dep.pkDepartamento)" class="btn btn-outline-danger">Eliminar</button>
-                    <button type="button" v-on:click="  editar(dep.pkDepartamento)" class="btn btn-outline-warning">Editar</button> 
+                    <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->                 
+                    <button type="button" v-on:click="eliminar(dep.pkDepartamento)" class="btn btn-outline-danger">Eliminar <i class="fa-solid fa-trash"></i></button>
+                    <button type="button" v-on:click="  editar(dep.pkDepartamento)" class="btn btn-outline-warning">Editar <i class="fa-solid fa-pen-to-square"></i></button>
                     <!-- <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button>  -->
                       
                     

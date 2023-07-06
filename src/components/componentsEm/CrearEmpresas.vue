@@ -11,6 +11,7 @@
                                     placeholder="nombre" v-model="Empresas.nombre" />
                             </div>
                             </div>
+                            <br>
                         
                             <div class="row">
                             <div class="form-group">
@@ -18,7 +19,8 @@
                                 <input type="text" class="form-control" name="direccion" id="direccion"
                                     aria-describedby="helpId" placeholder="direccion" v-model="Empresas.dirreccion" />
                             </div>
-                            </div>                                       
+                            </div> 
+                            <br>                                    
 
 
                        <div class="row">
@@ -27,6 +29,10 @@
                                 <input type="text" class="form-control" name="fk_Departamento" id="ciudad"
                                     aria-describedby="helpId" placeholder="fk_Departamento" v-model="Empresas.fk_Departamento" />
                             </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
 
                             <div class="row">
                             <div class="form-group">
@@ -35,6 +41,10 @@
                                     aria-describedby="helpId" placeholder="fkPuesto" v-model="Empresas.fk_Empleado" />
                             </div>
                             </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
 
                             <div class="row">
                             <div class="form-group">
@@ -43,6 +53,10 @@
                                     aria-describedby="helpId" placeholder="fk_Factura" v-model="Empresas.fk_Factura" />
                             </div>
                             </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
 
                             
                         
@@ -86,7 +100,11 @@
         </div>
     </div>
 </template>
-  
+<style>
+  .card-body {
+      margin: 2em;
+  }
+  </style>  
 <script>
 import axios from 'axios';
 export default {
@@ -183,8 +201,8 @@ export default {
  
 </script>
 
-<style scoped>
+<!-- <style scoped>
 label {
     font-weight: bold;
 }
-</style>
+</style> -->

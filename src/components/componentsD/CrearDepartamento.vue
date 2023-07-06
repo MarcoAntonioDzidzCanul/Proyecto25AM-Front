@@ -12,24 +12,40 @@
                                 <input type="text" class="form-control" name="nombre" aria-describedby="helpId" id="nombre"
                                     placeholder="Ingresa el nombre de departammento" v-model="Departamentos.nombre" />
                             </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
 
                             <div class="form-group">
                                 <label for="direccion" style="color: white;">Direccion:</label>
                                 <input type="text" class="form-control" name="direccion" aria-describedby="helpId" id="direccion"
                                     placeholder="Ingresa la direccion" v-model="Departamentos.direccion" />
                             </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
 
                             <div class="form-group">
                                 <label for="estado" style="color: white;">Estado:</label>
                                 <input type="text" class="form-control" name="estado" aria-describedby="helpId" id="estado"
                                     placeholder="Ingresa el estado" v-model="Departamentos.estado" />
                             </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
 
                             <div class="form-group">
                                 <label for="fk_Cliente" style="color: white;">Fk_Cliente:</label>
                                 <input type="text" class="form-control" name="fk_Cliente" aria-describedby="helpId" id="fk_Cliente"
                                     placeholder="Ingresa el cliente" v-model="Departamentos.fk_Cliente" />
                             </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
 
                         
   
@@ -57,7 +73,11 @@
         </div>
     </div>
   </template>
-  
+  <style>
+  .card-body {
+      margin: 2em;
+  }
+  </style>
   <script>
   import axios from 'axios';
   export default {
@@ -100,8 +120,8 @@
   }
   </script>
   
-  <style scoped>
+  <!-- <style scoped>
   label {
     font-weight: bold;
   }
-  </style>
+  </style> -->

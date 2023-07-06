@@ -38,7 +38,11 @@
         </div>
     </div>
   </template>
-  
+  <style>
+  .card-body {
+      margin: 2em;
+  }
+  </style>
   <script>
   import axios from 'axios';
   export default {
@@ -76,8 +80,8 @@
   }
   </script>
   
-  <style scoped>
+  <!-- <style scoped>
   label {
     font-weight: bold;
   }
-  </style>
+  </style> -->

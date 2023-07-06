@@ -1,6 +1,6 @@
 <template>
     <div>
-      <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Factura</button> 
+      <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Factura <i class="fa-solid fa-plus"></i></button> 
       <div class="card">
         <div class="card-header" style="background-color: #2E8B57;"><strong style="color:white;">Lista de Facturas</strong></div>
   
@@ -24,8 +24,8 @@
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                    <button type="button" v-on:click="eliminar(fac.pkFactura)" class="btn btn-outline-danger">Eliminar</button>
-                    <button type="button" v-on:click="  editar(fac.pkFactura)" class="btn btn-outline-warning">Editar</button> 
+                    <button type="button" v-on:click="eliminar(fac.pkFactura)" class="btn btn-outline-danger">Eliminar <i class="fa-solid fa-trash"></i></button>
+                    <button type="button" v-on:click="  editar(fac.pkFactura)" class="btn btn-outline-warning">Editar <i class="fa-solid fa-pen-to-square"></i></button>
                       
                     
                              

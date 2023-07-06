@@ -1,6 +1,6 @@
 <template>
     <div>
-      <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Empresas</button> 
+      <button type="button" v-on:click="crear()" class="btn btn-outline-success">Crear Empresa <i class="fa-solid fa-plus"></i></button> 
       <div class="card">
         <div class="card-header" style="background-color: #2E8B57;"><strong style="color:white;">Lista de Empresas</strong></div>
   
@@ -13,9 +13,9 @@
                 <th style="font-weight: bold;">Id</th>
                 <th style="font-weight: bold;">Nombre</th>
                 <th style="font-weight: bold;">Direccion</th>
-                <th style="font-weight: bold;">fk_Departamento</th>
-                <th style="font-weight: bold;">fk_Empleado</th>
-                <th style="font-weight: bold;">fk_Factura</th>
+                <th style="font-weight: bold;">Departamento</th>
+                <th style="font-weight: bold;">Empleado</th>
+                <th style="font-weight: bold;">Factura</th>
                 <th style="font-weight: bold;">Acciones</th>
               </tr>
             </thead>
@@ -31,8 +31,8 @@
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                    <button type="button" v-on:click="eliminar(Empre.pkEmpresa)" class="btn btn-outline-danger">Eliminar</button>
-                    <button type="button" v-on:click="  editar(Empre.pkEmpresa)" class="btn btn-outline-warning">Editar</button> 
+                    <button type="button" v-on:click="eliminar(Empre.pkEmpresa)" class="btn btn-outline-danger">Eliminar <i class="fa-solid fa-trash"></i></button>
+                    <button type="button" v-on:click="  editar(Empre.pkEmpresa)" class="btn btn-outline-warning">Editar <i class="fa-solid fa-pen-to-square"></i></button>
                     <!-- <button type="button" @click="mostrarFormulario(pkUsuario)" class="btn btn-outline-primary">Editar</button>  -->
                       
                     
