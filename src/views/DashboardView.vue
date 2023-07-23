@@ -47,15 +47,13 @@ import { RouterLink, RouterView } from 'vue-router'
 
                   
 
-
-
 <style>
 #menuxc {
   background: #E5E7EB;
   /* position: relative; */
   width: 100vw;
   /* Ancho igual al 100% del viewport (ventana del navegador) */
-  height: 100vh;
+  height: 100%;
   /* Altura igual al 100% del viewport */
 }
 

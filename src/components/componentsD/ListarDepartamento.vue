@@ -14,6 +14,7 @@
                 <th style="font-weight: bold;">Nombre</th>
                 <th style="font-weight: bold;">Direccion</th>
                 <th style="font-weight: bold;">Estado</th>
+                <th style="font-weight: bold;">Imagen</th>
                 <th style="font-weight: bold;">Cliente</th>
                 <th style="font-weight: bold;">Acciones</th>
               </tr>
@@ -24,6 +25,7 @@
                 <td>{{ dep.nombre }}</td>
                 <td>{{ dep.direccion }}</td>
                 <td>{{ dep.estado }}</td>
+                <td><img :src="dep.ruta_imagen" alt="Imagen" style="width: 300px; height: auto;"></td>
                 <td>{{ dep.fk_Cliente }}</td>
                 
                 <td>
@@ -63,8 +65,9 @@
     data() {
       
       return {
+        Departamentos: [
        
-        Departamentos: [],
+      ],
         smg: "",
       };
     },
@@ -101,8 +104,12 @@
       },
       crear(){
         window.location.href="/creardepartamento";
-      }
-    },
+
+      },
+    
+
   
+    }
+      
   };
   </script>

@@ -19,6 +19,10 @@
                 <th style="font-weight: bold;">Apellidos</th>
                 <th style="font-weight: bold;">Telefono</th>
                 <th style="font-weight: bold;">Email</th>
+                <th style="font-weight: bold;">Genero</th>
+                <th style="font-weight: bold;">CURP</th>
+                <th style="font-weight: bold;">RFC</th>
+                <th style="font-weight: bold;">Fecha de nacimiento</th>
                 <th style="font-weight: bold;">Acciones</th>
               </tr>
             </thead>
@@ -29,6 +33,10 @@
                 <td>{{ cliente.apellidos }}</td>
                 <td>{{ cliente.telefono }}</td>
                 <td>{{ cliente.email }}</td>
+                <td>{{ cliente.genero }}</td>
+                <td>{{ cliente.curp }}</td>
+                <td>{{ cliente.rfc }}</td>
+                <td>{{ cliente.fecha_Nacimiento }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->

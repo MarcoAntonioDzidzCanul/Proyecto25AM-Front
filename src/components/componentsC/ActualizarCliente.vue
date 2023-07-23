@@ -28,6 +28,26 @@
                             placeholder="" v-model="form.email" />
                             <br>
 
+                            <label for="genero" style="color: white;">Genero:</label>
+                        <input type="text" class="form-control" name="genero" aria-describedby="helpId" id="genero"
+                            placeholder="" v-model="form.email" />
+                            <br>
+
+                            <label for="curp" style="color: white;">CURP:</label>
+                        <input type="text" class="form-control" name="curp" aria-describedby="helpId" id="curp"
+                            placeholder="" v-model="form.email" />
+                            <br>
+
+                            <label for="rfc" style="color: white;">RFC:</label>
+                        <input type="text" class="form-control" name="rfc" aria-describedby="helpId" id="rfc"
+                            placeholder="" v-model="form.email" />
+                            <br>
+
+                            <label for="fecha_Nacimiento" style="color: white;">Fecha de nacimiento:</label>
+                        <input type="text" class="form-control" name="fecha_Nacimiento" aria-describedby="helpId" id="fecha_Nacimiento"
+                            placeholder="" v-model="form.email" />
+                            <br>
+
 
 
 
@@ -68,7 +88,11 @@ export default {
                 nombre: "",
                 apellidos: "",
                 telefono: "",
-                email: ""
+                email: "",
+                genero: "",
+                curp: "",
+                rfc: "",
+                fecha_Nacimiento: ""
             },
 
 
@@ -83,6 +107,10 @@ export default {
             this.form.apellidos = datos.data.result.apellidos;
             this.form.telefono = datos.data.result.telefono;
             this.form.email = datos.data.result.email;
+            this.form.genero = datos.data.result.genero;
+            this.form.curp = datos.data.result.curp;
+            this.form.rfc = datos.data.result.rfc;
+            this.form.fecha_Nacimiento = datos.data.result.fecha_Nacimiento;
             console.log(this.form)
         });
 

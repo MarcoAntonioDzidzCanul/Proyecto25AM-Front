@@ -20,6 +20,11 @@
                                   id="estado" placeholder="Escriba el estado" v-model="form.estado" />
                                   <br>
 
+                                  <label for="ruta_imagen" style="color: white;">DIreccion de la imagen:</label>
+                              <input type="text" class="form-control" name="ruta_imagen" aria-describedby="helpId"
+                                  id="ruta_imagen" placeholder="Escriba la direccion de la imagen" v-model="form.ruta_imagen" />
+                                  <br>
+
                                   <label for="fk_Cliente" style="color: white;">fk_Cliente:</label>
                               <input type="text" class="form-control" name="fk_Cliente" aria-describedby="helpId"
                                   id="fk_Cliente" placeholder="Escriba el cliente" v-model="form.fk_Cliente" />
@@ -73,6 +78,7 @@ export default {
           this.form.nombre = datos.data.result.nombre;
           this.form.direccion = datos.data.result.direccion;
           this.form.estado = datos.data.result.estado;
+          this.form.ruta_imagen = datos.data.result.ruta_imagen;
           this.form.fk_Cliente = datos.data.result.fk_Cliente;
 
           console.log(this.form)

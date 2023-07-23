@@ -55,6 +55,46 @@
                         <br>
                         <br>
 
+                        <div class="form-group">
+                            <label for="genero" style="color: white;">Genero:</label>
+                            <input type="text" class="form-control" name="genero" id="genero" aria-describedby="helpId"
+                                placeholder="genero" v-model="Clientes.genero" />
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        <div class="form-group">
+                            <label for="curp" style="color: white;">CURP:</label>
+                            <input type="text" class="form-control" name="curp" id="curp" aria-describedby="helpId"
+                                placeholder="curp" v-model="Clientes.curp" />
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        <div class="form-group">
+                            <label for="rfc" style="color: white;">RFC:</label>
+                            <input type="text" class="form-control" name="rfc" id="rfc" aria-describedby="helpId"
+                                placeholder="rfc" v-model="Clientes.rfc" />
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        <div class="form-group">
+                            <label for="fecha_Nacimiento" style="color: white;">Fecha de nacimiento:</label>
+                            <input type="text" class="form-control" name="fecha_Nacimiento" id="fecha_Nacimiento" aria-describedby="helpId"
+                                placeholder="fecha_Nacimiento" v-model="Clientes.fecha_Nacimiento" />
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
 
 
 
@@ -105,7 +145,11 @@ export default {
                 nombre: this.Clientes.nombre,
                 apellidos: this.Clientes.apellidos,
                 telefono: this.Clientes.telefono,
-                email: this.Clientes.email
+                email: this.Clientes.email,
+                genero: this.Clientes.genero,
+                curp: this.Clientes.curp,
+                rfc: this.Clientes.rfc,
+                fecha_Nacimiento: this.Clientes.fecha_Nacimiento
             };
 
             axios.post('https://localhost:7051/Cliente', cuerpo1).then((result) => {

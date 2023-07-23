@@ -38,6 +38,16 @@
                             <br>
 
                             <div class="form-group">
+                                <label for="ruta_imagen" style="color: white;">Direccion de imagen:</label>
+                                <input type="text" class="form-control" name="ruta_imagen" aria-describedby="helpId" id="ruta_imagen"
+                                    placeholder="Ingresa la ruta" v-model="Departamentos.ruta_imagen" />
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                            <div class="form-group">
                                 <label for="fk_Cliente" style="color: white;">Fk_Cliente:</label>
                                 <input type="text" class="form-control" name="fk_Cliente" aria-describedby="helpId" id="fk_Cliente"
                                     placeholder="Ingresa el cliente" v-model="Departamentos.fk_Cliente" />
@@ -99,6 +109,7 @@
                 nombre: this.Departamentos.nombre,
                 direccion: this.Departamentos.direccion,
                 estado: this.Departamentos.estado,
+                ruta_imagen: this.Departamentos.ruta_imagen,
                 fk_Cliente: this.Departamentos.fk_Cliente,
                 
             };
