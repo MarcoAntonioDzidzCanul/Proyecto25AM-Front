@@ -20,10 +20,10 @@
                                   id="estado" placeholder="Escriba el estado" v-model="form.estado" />
                                   <br>
 
-                                  <label for="ruta_imagen" style="color: white;">DIreccion de la imagen:</label>
-                              <input type="text" class="form-control" name="ruta_imagen" aria-describedby="helpId"
-                                  id="ruta_imagen" placeholder="Escriba la direccion de la imagen" v-model="form.ruta_imagen" />
-                                  <br>
+                                  <div class="form-group">
+    <label for="imagen" style="color: white;">Imagen:</label>
+    <input type="file" class="form-control" name="imagen" @change="handleImageChange">
+  </div>
 
                                   <label for="fk_Cliente" style="color: white;">fk_Cliente:</label>
                               <input type="text" class="form-control" name="fk_Cliente" aria-describedby="helpId"
@@ -86,6 +86,20 @@ export default {
 
   },
   methods:{
+    handleImageChange(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      this.form.ruta_imagen = reader.result;
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.form.ruta_imagen = null;
+    }
+  },
       editarDep()
       {
           axios.put("https://localhost:7051/Departamento/" + this.pkDepartamento, this.form).then(data =>{

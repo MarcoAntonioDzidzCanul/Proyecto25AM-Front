@@ -25,7 +25,10 @@
                 <td>{{ dep.nombre }}</td>
                 <td>{{ dep.direccion }}</td>
                 <td>{{ dep.estado }}</td>
-                <td><img :src="dep.ruta_imagen" alt="Imagen" style="width: 300px; height: auto;"></td>
+                <td>
+      <img v-if="dep.ruta_imagen" :src="dep.ruta_imagen" alt="Imagen" style="width: 300px; height: auto;">
+      <span v-else>No se ha seleccionado imagen</span>
+    </td>
                 <td>{{ dep.fk_Cliente }}</td>
                 
                 <td>
